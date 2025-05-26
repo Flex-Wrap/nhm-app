@@ -5,6 +5,7 @@ import svgr from 'vite-plugin-svgr'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/NHM-solution/',
   plugins: [
     react(),
     svgr(),
