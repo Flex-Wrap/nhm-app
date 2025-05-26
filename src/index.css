@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Space+Grotesk&display=swap');
+:root {
+  /* Polar Blue */
+  --polar-850: #395A71;
+  --polar-700: #6187A2;
+  --polar-500: #96C3E3;
+  --polar-300: #C0DDEE;
+  --polar-150: #E0EDF7;
+
+  /* Moss Green */
+  --moss-850: #131706;
+  --moss-700: #252D0D;
+  --moss-500: #3E4B15;
+  --moss-300: #7A894E;
+  --moss-150: #A8B778;
+
+  /* Wheat Yellow */
+  --wheat-850: #645327;
+  --wheat-700: #9D8546;
+  --wheat-500: #E9C770;
+  --wheat-300: #F2DDA9;
+  --wheat-150: #FFFAED;
+
+  /* Orange */
+  --orange-850: #472e08;
+  --orange-700: #C17C15;
+  --orange-500: #ED991B;
+  --orange-300: #F4C276;
+  --orange-150: #FAE0BB;
+
+  /* Mud Brown */
+  --brown-850: #130902;
+  --brown-700: #251205;
+  --brown-500: #3E1E08;
+  --brown-300: #855738;
+  --brown-150: #BA825B;
+
+  /* Neutrals */
+  --neutral-50: #FAFAFA;
+  --neutral-100: #E0EDF7;
+
+  --grey: #989898;
+}
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: black;
+  height: 100%;
+  font-family: 'Averia Serif Libre', serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Constrain actual layout */
+#root {
+  position: relative;
+  max-width: 430px;
+  min-width: 375px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-50);
+}
+
+/* Headings and Body Text */
+h1 {
+  font-family: 'Averia Serif Libre', serif;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: auto;
+}
+
+h2 {
+  font-family: 'Averia Serif Libre', serif;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: auto;
+}
+
+h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: auto;
+}
+
+p {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.small-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+/* Containers */
+.scrollable-container {
+  position: relative;
+  padding-bottom: 120px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.content{
+  padding: 26px 18px;
+  padding-top: 0;
+}
+
+.back-button-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 18px;
+}

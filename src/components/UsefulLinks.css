@@ -1,0 +1,33 @@
+.useful-links-list {
+  padding: 22px;
+  list-style: none;
+  background-color: var(--wheat-150);
+  border-radius: 20px 32px;
+}
+
+.useful-links-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--wheat-300);
+  cursor: pointer;
+}
+
+.useful-links-item:last-child {
+  border-bottom: none;
+}
+
+.useful-links-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+}

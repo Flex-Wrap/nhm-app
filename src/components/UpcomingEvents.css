@@ -1,0 +1,13 @@
+.upcoming-events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 12px;
+}
+
+.upcoming-events-header .arrow {
+  width: 24px;
+  height: 24px;
+  color: var(--moss-500);
+  padding: 4px;
+}

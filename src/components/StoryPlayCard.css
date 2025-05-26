@@ -1,0 +1,82 @@
+.card-cutout {
+  position: relative;
+  width: 260px;
+  height: 314px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  --cutout-width: 84px;
+  --cutout-height: 82px;
+}
+
+.card-cutout::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  width: var(--cutout-width);
+  height: var(--cutout-height);
+  border-radius: 36px 0 0 0;
+  background: var(--neutral-50);
+}
+
+.fake-corners::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: var(--cutout-width);
+  height: 30px;
+  width: 50px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 20px 0 0 0 var(--neutral-50);
+}
+
+.fake-corners::after {
+  content: '';
+  position: absolute;
+  bottom: var(--cutout-height);
+  right: 0;
+  height: 50px;
+  width: 30px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 20px 0 0 var(--neutral-50);
+}
+
+.play-button {
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 72px;
+  width: 72px;
+  background-color: var(--wheat-500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.title{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: var(--neutral-50);
+  width: 70%;
+}
+.text-container{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - var(--cutout-width));
+  bottom: calc(var(--cutout-height)/2 - 1.2em);
+  margin-top: auto;
+}
+
+h3{
+  color: var(--neutral-50);
+  text-align: center;
+}

@@ -1,0 +1,63 @@
+.info-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-page-content img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  display: block;
+  border-radius: 20px;
+}
+
+.highlighted-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 18px 32px;
+  background-color: var(--wheat-150);
+  border-radius: 20px;
+}
+
+.highlighted-list.no-style {
+  list-style-type: none;
+  padding: 18px 16px;
+}
+
+.info-page-content .highlighted-text {
+  width: 100%;
+  text-align: center;
+  padding: 12px 16px;
+  background-color: var(--wheat-150);
+  border-radius: 20px;
+}
+
+.info-card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--polar-300);
+  border-radius: 20px;
+  padding: 16px;
+  gap: 12px;
+}
+
+.info-card-container.bus-info-card {
+  background-color: var(--neutral-50);
+}
+
+.info-card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--polar-700);
+}
+
+.info-card-text {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
