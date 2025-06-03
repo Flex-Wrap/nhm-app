@@ -18,7 +18,7 @@ const PollResultsPage: React.FC = () => {
           <VisitorOpinion />
         </TextBox>
       </div>
-      <ContinueButton />
+      <ContinueButton text="Continue"/>
     </div>
   );
 };

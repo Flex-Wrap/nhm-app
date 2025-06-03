@@ -6,11 +6,13 @@ import "./ContinueButton.css";
 type ContinueButtonProps = {
   to?: string;
   onClick?: () => void;
+  text: string;
 };
 
 export const ContinueButton: React.FC<ContinueButtonProps> = ({
   to,
   onClick,
+  text,
 }) => {
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ export const ContinueButton: React.FC<ContinueButtonProps> = ({
 
   return (
     <button className="continue-button" onClick={handleClick}>
-      <h3>Continue</h3>
+      <h3>{text}</h3>
       <IconArrow className="arrow" />
     </button>
   );
