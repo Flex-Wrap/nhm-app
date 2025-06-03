@@ -6,6 +6,7 @@ import scene4 from "../assets/scene4-bg.jpg";
 import scene5 from "../assets/scene5-bg.jpg";
 import scene6 from "../assets/scene6-bg.jpg";
 import scene78910 from "../assets/scene78910-bg.jpg";
+import scene11 from "../assets/scene11-bg.jpg";
 
 const scenes = [
     {
@@ -117,6 +118,11 @@ const scenes = [
         previousPage: "/safariPages/scene/9",
         characterImage: jakobsen,
         buttonText: "check notebook"
+    },
+    {
+        id: 11,
+        text: "We need to capture all real scenes with animals—every detail, every instinct—to represent it perfectly in Denmark.\n\nIt’s not just about the hunt; it’s about understanding the behavior, the patterns.\n\nThat’s how you make it real.",
+        image: scene11,
     }
 ];
 export default scenes;
