@@ -1,0 +1,15 @@
+.tag {
+  display: flex;
+  padding: 5px 8px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  background: var(--navbar-fg-color, var(--moss-150));
+  color: var(--tag-fg-color, var(--moss-850))
+}
+
+.tag-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

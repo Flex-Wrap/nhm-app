@@ -15,6 +15,9 @@ import { ContactInfo } from "./pages/infoPages/ContactInfo";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { setLastDiscoverPath } from "./utils/pathTracker";
+import SliderPage from "./pages/safariPages/SliderPageSafari1";
+import CheckboxPage from "./pages/safariPages/CheckboxPage";
+import PollPage from "./pages/safariPages/PollPage";
 
 const discoverRoutes = [
   "/",
@@ -27,6 +30,9 @@ const discoverRoutes = [
 export function App() {
   const location = useLocation();
 
+  const hideNavbarRoutes = ["/safariPages/slider", "/safariPages/checkbox", "/safariPages/poll"];
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+
   useEffect(() => {
     if (discoverRoutes.includes(location.pathname)) {
       setLastDiscoverPath(location.pathname);
@@ -34,7 +40,7 @@ export function App() {
   }, [location.pathname]);
   return (
     <>
-      <Navbar />
+      {!shouldHideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Discover />} />
         <Route path="/exhibitions" element={<Exhibitions />} />
@@ -48,6 +54,11 @@ export function App() {
         <Route path="/infoPages/route-parking" element={<RouteAndParking />} />
         <Route path="/infoPages/social-media" element={<SocialMedia />} />
         <Route path="/infoPages/contact-info" element={<ContactInfo />} />
+
+        {/* Safari pages */}
+        <Route path="/safariPages/slider" element={<SliderPage />} />
+        <Route path="/safariPages/checkbox" element={<CheckboxPage />} />
+        <Route path="/safariPages/poll" element={<PollPage />} />
       </Routes>
     </>
   );

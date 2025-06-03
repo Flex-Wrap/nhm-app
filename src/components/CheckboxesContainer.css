@@ -1,0 +1,10 @@
+.checkboxes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto; 
+  gap: 40px 59px;
+  background-color: var(--wheat-300);
+  align-items: center;
+  border-radius: 20px;
+  width: 90%;
+}
