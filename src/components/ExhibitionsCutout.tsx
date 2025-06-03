@@ -1,5 +1,5 @@
-import React from 'react';
-import './ExhibitionsCutout.css';
+import React from "react";
+import "./ExhibitionsCutout.css";
 
 interface CardContent {
   title: string;
@@ -14,32 +14,44 @@ interface ExhibitionsCutoutProps {
 }
 
 const ExhibitionsCutout: React.FC<ExhibitionsCutoutProps> = ({
-  className = '',
+  className = "",
   left,
   right,
-  bottom
+  bottom,
 }) => {
   return (
     <div className={`card-container ${className}`}>
       <div
         className="card card-left"
-        style={{ '--card-image': `url(${left.picture})` } as React.CSSProperties}
+        style={
+          { "--card-image": `url(${left.picture})` } as React.CSSProperties
+        }
       >
-        <h3 className="card-title">{left.title}</h3>
+        <h2 className="card-title">{left.title}</h2>
+        <div className="card-new">
+          <p>new</p>
+        </div>
       </div>
 
       <div
         className="card card-right"
-        style={{ '--card-image': `url(${right.picture})` } as React.CSSProperties}
+        style={
+          { "--card-image": `url(${right.picture})` } as React.CSSProperties
+        }
       >
-        <h3 className="card-title">{right.title}</h3>
+        <h2 className="card-title">{right.title}</h2>
+        <div className="card-new">
+          <p>new</p>
+        </div>
       </div>
 
       <div
         className="card card-bottom"
-        style={{ '--card-image': `url(${bottom.picture})` } as React.CSSProperties}
+        style={
+          { "--card-image": `url(${bottom.picture})` } as React.CSSProperties
+        }
       >
-        <h3 className="card-title">{bottom.title}</h3>
+        <h2 className="card-title">{bottom.title}</h2>
       </div>
     </div>
   );
