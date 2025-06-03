@@ -1,13 +1,11 @@
-import { useLocation } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
+import { ContinueButton } from "../../components/ContinueButton";
 import { HomeButton } from "../../components/HomeButton";
 import TextBox from "../../components/TextBox";
 import VisitorOpinion from "../../components/VisitorsOpinion";
+import "./PollResultsPage.css"; 
 
 const PollResultsPage: React.FC = () => {
-  const location = useLocation();
-  const userAnswer = location.state?.userAnswer;
-
   return (
     <div className="poll-results-page">
       <div className="top-buttons">
@@ -16,10 +14,11 @@ const PollResultsPage: React.FC = () => {
       </div>
       <div className="content">
         <TextBox text="">
-          <h2>What did the other visitors think?</h2>
-          <VisitorOpinion userAnswer={userAnswer} />
+          <h2 style={{fontSize: "21px"}}>What did the other visitors think?</h2>
+          <VisitorOpinion />
         </TextBox>
       </div>
+      <ContinueButton />
     </div>
   );
 };
