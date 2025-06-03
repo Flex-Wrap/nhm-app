@@ -1,0 +1,16 @@
+.home-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--moss-500);
+}
+
+.home {
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  color: white;
+}

@@ -1,0 +1,13 @@
+.overlay {
+  display: flex;
+  padding: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  min-width: 306px;
+  font-family: "Space Grotesk", sans-serif;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background-color: white;
+}

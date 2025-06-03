@@ -1,0 +1,67 @@
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-bg {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 50px;
+  padding: 7px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background 0.5s ease;
+  position: relative;
+  min-width: 354px;
+  overflow: hidden;
+}
+
+.go-button {
+  background-color: white;
+  color: var(--moss-850);
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: "Space-Grotesk", sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 50%;
+  left: 7px;
+  transform: translateY(-50%);
+  transition: left 0.5s ease, background-color 0.5s ease, color 0.5s ease;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.slider-container.active .go-button {
+  background-color: var(--orange-300);
+  left: calc(100% - 73px);
+}
+
+.arrows {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  font-size: 24px;
+  color: white;
+  pointer-events: none;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.slider-container.active .arrows {
+  opacity: 0;
+}

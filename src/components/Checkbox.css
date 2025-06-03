@@ -1,0 +1,43 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rectangle {
+    width: 27px;
+    height: 27px;
+    border: 2px solid var(--moss-500);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.rectangle.checked {
+    background-color: var(--moss-500);
+}
+
+.label {
+  position: relative;
+  color: var(--text-color, black);
+  transition: color 0.3s ease;
+}
+
+.label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: var(--wheat-700);
+  transition: width 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.label.crossed {
+  color: var(--wheat-700);
+}
+
+.label.crossed::after {
+  width: 100%;
+}
