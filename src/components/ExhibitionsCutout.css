@@ -1,37 +1,92 @@
 .card-container {
+  --top-card-height: 174px; /* Height of the top card */
+  --bottom-card-height: 152px; /* Height of the bottom card */
+  --card-gap: 12px; /* Gap between cards */
   position: relative;
   width: 100%;
-  height: 348px; /* 174 + 12 + 152 */
+  height: calc(
+    var(--top-card-height) + var(--card-gap) + var(--bottom-card-height)
+  );
 }
 
 .card {
   position: absolute;
-  border-radius: 8px;
+  border-radius: 20px;
+  z-index: 0;
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)),
+    var(--card-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
 }
 
 /* Top left card */
-.card-red {
+.card-left {
   top: 0;
   left: 0;
-  width: calc(50% - 6px);
-  height: 174px;
+  width: calc(50% - (var(--card-gap) / 2));
+  height: var(--top-card-height);
   background-color: red;
 }
 
 /* Top right card */
-.card-green {
+.card-right {
   top: 0;
   right: 0;
-  width: calc(50% - 6px);
-  height: 174px;
+  width: calc(50% - (var(--card-gap) / 2));
+  height: calc(100% - var(--bottom-card-height) / 2 - var(--card-gap));
   background-color: green;
+  box-shadow: 0 0 0 var(--card-gap) var(--neutral-50);
+  z-index: 1;
 }
 
 /* Bottom card (centered across full width) */
-.card-blue {
+.card-bottom {
   bottom: 0;
   left: 0;
   width: 100%;
   height: 152px;
   background-color: blue;
+}
+
+.card-bottom::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 20px 0 0;
+  box-shadow: 6px -6px 0 0 var(--neutral-50);
+  top: 0;
+  right: calc(50% + var(--card-gap) / 2);
+  z-index: 0;
+}
+
+.card-bottom::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 0 20px 0 0;
+  box-shadow: 10px -10px 0 0 var(--neutral-50);
+  top: 50%;
+  right: 0;
+  z-index: 0;
+}
+
+.card img.card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+}
+
+.card-title {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: var(--neutral-50);
 }
