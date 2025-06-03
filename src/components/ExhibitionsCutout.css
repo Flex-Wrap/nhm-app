@@ -1,0 +1,37 @@
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 348px; /* 174 + 12 + 152 */
+}
+
+.card {
+  position: absolute;
+  border-radius: 8px;
+}
+
+/* Top left card */
+.card-red {
+  top: 0;
+  left: 0;
+  width: calc(50% - 6px);
+  height: 174px;
+  background-color: red;
+}
+
+/* Top right card */
+.card-green {
+  top: 0;
+  right: 0;
+  width: calc(50% - 6px);
+  height: 174px;
+  background-color: green;
+}
+
+/* Bottom card (centered across full width) */
+.card-blue {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 152px;
+  background-color: blue;
+}
