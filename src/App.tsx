@@ -14,7 +14,7 @@ import { ContactInfo } from "./pages/infoPages/ContactInfo";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { setLastDiscoverPath } from "./utils/pathTracker";
+import { setLastPath } from "./utils/pathTracker";
 import SliderPage from "./pages/safariPages/SliderPageSafari1";
 import CheckboxPage from "./pages/safariPages/CheckboxPage";
 import PollPage from "./pages/safariPages/PollPage";
@@ -35,10 +35,19 @@ export function App() {
   const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
   useEffect(() => {
-    if (discoverRoutes.includes(location.pathname)) {
-      setLastDiscoverPath(location.pathname);
+    const pathname = location.pathname;
+
+    if (pathname === "/" || pathname.startsWith("/infoPages/")) {
+      setLastPath("discover", pathname);
+    } else if (pathname.startsWith("/exhibitions")) {
+      setLastPath("exhibitions", pathname);
+    } else if (pathname.startsWith("/map")) {
+      setLastPath("map", pathname);
+    } else if (pathname.startsWith("/schedule")) {
+      setLastPath("schedule", pathname);
     }
   }, [location.pathname]);
+  
   return (
     <>
       {!shouldHideNavbar && <Navbar />}
