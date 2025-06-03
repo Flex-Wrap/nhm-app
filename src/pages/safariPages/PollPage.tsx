@@ -8,7 +8,7 @@ const PollPage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleVote = (answer: "yes" | "no") => {
-        navigate("/poll-results", {state: {userAnswer: answer}});
+        navigate("/safariPages/poll-results", {state: {userAnswer: answer}});
     }
   return (
     <div className="poll-page">

@@ -1,0 +1,43 @@
+.vertical-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  margin-top: 30px;
+}
+
+.bar-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar-column span {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+}
+
+.bar {
+  width: 40px;
+  height: 2px;
+  border-radius: 8px;
+  margin: 10px 0;
+  transition: height 1s ease-in-out;
+}
+
+.bar-wrapper {
+  height: 150px; /* This is the reference for the 73% / 27% */
+  display: flex;
+  align-items: flex-end;
+}
+
+/* YES bar */
+.yes-bar {
+  background-color: var(--wheat-700);
+}
+
+/* NO bar */
+.no-bar {
+  background-color: var(--wheat-500);
+}
