@@ -6,7 +6,7 @@ import { App } from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/NHM-Solution">
+    <BrowserRouter basename="/nhm-app/">
       <App />
     </BrowserRouter>
   </StrictMode>
