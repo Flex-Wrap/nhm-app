@@ -28,7 +28,7 @@ const CheckboxPage: React.FC = () => {
       <div className="content">
         <OverlayContainer visibleOverlays={visibleOverlays} />
         <CheckboxesContainer toggleOverlay={toggleOverlay} />
-        <ContinueButton />
+        <ContinueButton text="Continue"/>
       </div>
     </div>
   );
