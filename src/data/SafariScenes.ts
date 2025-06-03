@@ -7,6 +7,10 @@ import scene5 from "../assets/scene5-bg.jpg";
 import scene6 from "../assets/scene6-bg.jpg";
 import scene78910 from "../assets/scene78910-bg.jpg";
 import scene11 from "../assets/scene11-bg.jpg";
+import scene12 from "../assets/scene12-bg.jpg";
+import scene13 from "../assets/scene13-bg.jpg";
+import scene14 from "../assets/scene14-bg.jpg";
+import scene15 from "../assets/scene15-bg.jpg";
 
 const scenes = [
     {
@@ -18,7 +22,7 @@ const scenes = [
         nextPage: "/safariPages/scene/2",
         previousPage: "/safariPages/slider",
         characterImage: "",
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 2,
@@ -29,7 +33,7 @@ const scenes = [
         nextPage: "/safariPages/notification/1",
         previousPage: "/safariPages/scene/1",
         characterImage: knud,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 3,
@@ -40,7 +44,7 @@ const scenes = [
         nextPage: "/safariPages/scene/4",
         previousPage: "/safariPages/checkbox",
         characterImage: jakobsen,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 4,
@@ -51,7 +55,7 @@ const scenes = [
         nextPage: "/safariPages/scene/5",
         previousPage: "/safariPages/scene/3",
         characterImage: knud,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 5,
@@ -62,7 +66,7 @@ const scenes = [
         nextPage: "/safariPages/scene/6",
         previousPage: "/safariPages/scene/4",
         characterImage: knud,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 6,
@@ -73,7 +77,7 @@ const scenes = [
         nextPage: "/safariPages/choose",
         previousPage: "/safariPages/scene/5",
         characterImage: jakobsen,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 7,
@@ -84,7 +88,7 @@ const scenes = [
         nextPage: "/safariPages/scene/8",
         previousPage: "/safariPages/choose",
         characterImage: knud,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 8,
@@ -95,7 +99,7 @@ const scenes = [
         nextPage: "/safariPages/notification/2",
         previousPage: "/safariPages/scene/7",
         characterImage: jakobsen,
-        buttonText: "check notebook"
+        buttonText: "Check notebook"
     },
     {
         id: 9,
@@ -106,7 +110,7 @@ const scenes = [
         nextPage: "/safariPages/scene/10",
         previousPage: "/safariPages/choose",
         characterImage: knud,
-        buttonText: "continue"
+        buttonText: "Continue"
     },
     {
         id: 10,
@@ -117,12 +121,63 @@ const scenes = [
         nextPage: "/safariPages/notification/2",
         previousPage: "/safariPages/scene/9",
         characterImage: jakobsen,
-        buttonText: "check notebook"
+        buttonText: "Check notebook"
     },
     {
         id: 11,
         text: "We need to capture all real scenes with animals—every detail, every instinct—to represent it perfectly in Denmark.\n\nIt’s not just about the hunt; it’s about understanding the behavior, the patterns.\n\nThat’s how you make it real.",
         image: scene11,
+        audio: "/",
+        progress: "62%",
+        nextPage: "/safariPages/AR/1",
+        previousPage: "/safariPages/scene/10",
+        characterImage: jakobsen,
+        buttonText: "Take a picture"
+    },
+    {
+        id: 12,
+        text: "You see, Knud, the savannah's a fascinating place. It’s all about the rhythms of migration. Every year, like clockwork, these plant-eaters—gazelles, zebras, wildebeests—start moving, following the rains—always on the run, looking over their shoulder.\n\nIt’s a harsh life, governed by the hunt. The predators—they’re relentless. But that's nature. The brutality, the survival, it’s normal here. You don’t question it—you just do it...\n\nSpeak of the devil! The lions, let’s get closer ",
+        image: scene12,
+        audio: "/",
+        progress: "67%",
+        nextPage: "/safariPages/AR/2",
+        previousPage: "/safariPages/AR/1",
+        characterImage: jakobsen,
+        buttonText: "Take a picture"
+    },
+    {
+        id: 13,
+        text: "Photographing the zebras was no easy task — but the lions were on a completely different level. Capturing them up close as they feasted on their prey… their heavy breaths from the hunt, mouths soaked in red.\n\nJakobsen spoke about the lions as if he knew them personally. He said they assigned roles — some scout, some hunt, some just watch.\n\nJust like us. We both kill.And yet I wonder — does the lion feel remorse, like I do?\n\nHow does Jakobsen feel? I had to know.",
+        image: scene13,
+        audio: "/",
+        progress: "71%",
+        nextPage: "/safariPages/dialogue",
+        previousPage: "/safariPages/AR/2",
+        characterImage: knud,
+        buttonText: "Continue"
+    },
+    {
+        id: 14,
+        text: "I used to think he did this for the thrill... the hunt... some twisted pride. But it’s not that. Not really. It’s something else. Something deeper.\n\nHe’s not just preserving bodies. He is trying to preserve wonder... trying to give it to someone who can’t be here to see it for himself. \n\nLook at his passion. His eyes... you can see his devotion.\n\nIt’s not just taxidermy.",
+        image: scene14,
+        audio: "/",
+        progress: "90%",
+        nextPage: "/safariPages/notification/4",
+        previousPage: "/safariPages/notification/3",
+        characterImage: knud,
+        buttonText: "Continue"
+    },
+    {
+        id: 15,
+        text: "I still don’t know what we really brought back with us. Was it knowledge? Was it beauty? Or was it something we had no right to take? Maybe one day I’ll look at those photographs and feel proud. But right now... all I feel is the weight of it.",
+        image: scene15,
+        audio: "/",
+        progress: "00%",
+        nextPage: "/safariPages/sliderEnd",
+        previousPage: "/safariPages/notification/4",
+        characterImage: knud,
+        buttonText: "Continue",
+
     }
 ];
 export default scenes;
