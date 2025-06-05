@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ExhibitionDetailsSection from "../components/ExhibitionDetailsSection";
 import "../pages/ExhibitionDetails.css";
 import exhibitions from "../data/Exhibitions.ts";
+import { BackButton } from "../components/BackButton.tsx";
 
 interface Exhibition {
   id: number;
@@ -69,6 +70,9 @@ export const ExhibitionDetails = () => {
           ["--navbar-bg-color" as any]: `var(${background})`,
         }}
       >
+        <div className="back-button-container">
+          <BackButton to="/exhibitions" />
+        </div>
         <ExhibitionDetailsSection id={id} />
       </div>
     </NavbarThemeContext.Provider>
