@@ -5,6 +5,13 @@
     height: 100vh;
 }
 
+.slider-page-end {
+    background-image: url('../../assets/sliderEnd-bg.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+
 .top-buttons {
     display: flex;
     justify-content: space-between;

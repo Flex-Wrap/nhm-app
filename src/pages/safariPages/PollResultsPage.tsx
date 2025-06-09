@@ -18,7 +18,7 @@ const PollResultsPage: React.FC = () => {
           <VisitorOpinion />
         </TextBox>
       </div>
-      <ContinueButton text="Continue"/>
+      <ContinueButton text="Continue" to="/safariPages/notification/3"/>
     </div>
   );
 };

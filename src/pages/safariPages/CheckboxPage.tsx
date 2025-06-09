@@ -28,7 +28,7 @@ const CheckboxPage: React.FC = () => {
       <div className="content">
         <OverlayContainer visibleOverlays={visibleOverlays} />
         <CheckboxesContainer toggleOverlay={toggleOverlay} />
-        <ContinueButton text="Continue"/>
+        <ContinueButton text="Continue" to="/safariPages/scene/3"/>
       </div>
     </div>
   );

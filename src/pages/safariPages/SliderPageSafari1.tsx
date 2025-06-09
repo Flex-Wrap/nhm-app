@@ -23,7 +23,7 @@ const SliderPage = () => {
           <p className="big-text">AFRICA</p>
         </div>
       </div>
-      <SliderButton />
+      <SliderButton buttonText="GO" nextPage="/safariPages/scene/1"/>
     </div>
   );
 };

@@ -34,6 +34,7 @@ export const scenes = [
         progress: "5%",
         nextPage: "/safariPages/scene/2",
         previousPage: "/safariPages/slider",
+        character: false,
         characterImage: "",
         buttonText: "Continue"
     },
@@ -45,6 +46,7 @@ export const scenes = [
         progress: "10%",
         nextPage: "/safariPages/notification/1",
         previousPage: "/safariPages/scene/1",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -56,6 +58,7 @@ export const scenes = [
         progress: "24%",
         nextPage: "/safariPages/scene/4",
         previousPage: "/safariPages/checkbox",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Continue"
     },
@@ -67,6 +70,7 @@ export const scenes = [
         progress: "29%",
         nextPage: "/safariPages/scene/5",
         previousPage: "/safariPages/scene/3",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -78,6 +82,7 @@ export const scenes = [
         progress: "35%",
         nextPage: "/safariPages/scene/6",
         previousPage: "/safariPages/scene/4",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -89,6 +94,7 @@ export const scenes = [
         progress: "38%",
         nextPage: "/safariPages/choose",
         previousPage: "/safariPages/scene/5",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Continue"
     },
@@ -100,6 +106,7 @@ export const scenes = [
         progress: "48%",
         nextPage: "/safariPages/scene/8",
         previousPage: "/safariPages/choose",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -111,6 +118,7 @@ export const scenes = [
         progress: "52%",
         nextPage: "/safariPages/notification/2",
         previousPage: "/safariPages/scene/7",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Check notebook"
     },
@@ -122,6 +130,7 @@ export const scenes = [
         progress: "48%",
         nextPage: "/safariPages/scene/10",
         previousPage: "/safariPages/choose",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -133,6 +142,7 @@ export const scenes = [
         progress: "52%",
         nextPage: "/safariPages/notification/2",
         previousPage: "/safariPages/scene/9",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Check notebook"
     },
@@ -144,6 +154,7 @@ export const scenes = [
         progress: "62%",
         nextPage: "/safariPages/AR/1",
         previousPage: "/safariPages/scene/10",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Take a picture"
     },
@@ -155,6 +166,7 @@ export const scenes = [
         progress: "67%",
         nextPage: "/safariPages/AR/2",
         previousPage: "/safariPages/AR/1",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Take a picture"
     },
@@ -166,6 +178,7 @@ export const scenes = [
         progress: "71%",
         nextPage: "/safariPages/dialogue",
         previousPage: "/safariPages/AR/2",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -177,6 +190,7 @@ export const scenes = [
         progress: "90%",
         nextPage: "/safariPages/scene/15",
         previousPage: "/safariPages/notification/3",
+        character: true,
         characterImage: knud,
         buttonText: "Continue"
     },
@@ -188,6 +202,7 @@ export const scenes = [
         progress: "95%",
         nextPage: "/safariPages/notification/4",
         previousPage: "/safariPages/scene/14",
+        character: true,
         characterImage: jakobsen,
         buttonText: "Continue"
     },
@@ -199,6 +214,7 @@ export const scenes = [
         progress: "99%",
         nextPage: "/safariPages/sliderEnd",
         previousPage: "/safariPages/notification/4",
+        character: true,
         characterImage: knud,
         buttonText: "Continue",
 
