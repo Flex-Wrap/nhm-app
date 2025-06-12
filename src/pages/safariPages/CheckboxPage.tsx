@@ -3,6 +3,7 @@ import CheckboxesContainer from "../../components/ChecboxesContainer";
 import { ContinueButton } from "../../components/ContinueButton";
 import { HomeButton } from "../../components/HomeButton";
 import OverlayContainer from "../../components/OverlayContainer";
+import ProgressBar from "../../components/ProgressBar";
 import "./CheckboxPage.css";
 
 import React, { useState } from "react";
@@ -23,6 +24,7 @@ const CheckboxPage: React.FC = () => {
     <div className="checkbox-page">
       <div className="top-buttons">
         <BackButton />
+        <ProgressBar percentage={19} />
         <HomeButton to="/" />
       </div>
       <div className="content">

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { HomeButton } from "../../components/HomeButton";
 import TextBox from "../../components/TextBox";
@@ -9,7 +9,6 @@ import ProgressBar from "../../components/ProgressBar";
 
 const BasicScene: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const sceneId = parseInt(id || "1", 10);
   const scene = scenes.find((s) => s.id === sceneId);
 

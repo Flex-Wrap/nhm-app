@@ -3,6 +3,7 @@ import { BackButton } from "../../components/BackButton";
 import { HomeButton } from "../../components/HomeButton";
 import TextBox from "../../components/TextBox";
 import "./PollPage.css";
+import ProgressBar from "../../components/ProgressBar";
 
 const PollPage: React.FC = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const PollPage: React.FC = () => {
     <div className="poll-page">
       <div className="top-buttons">
         <BackButton />
+        <ProgressBar percentage={81} />
         <HomeButton to="/" />
       </div>
       <div className="content">
