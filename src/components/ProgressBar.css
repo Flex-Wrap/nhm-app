@@ -1,0 +1,29 @@
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 18px;
+  width: 185px;
+  height: 38px;
+}
+
+.progress-label {
+  color: var(--moss-700);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background-color: var(--moss-150);
+  border-radius: 1000px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--moss-700);
+  transition: width 0.3s ease;
+}

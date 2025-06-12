@@ -15,7 +15,7 @@
 .top-buttons {
     display: flex;
     justify-content: space-between;
-    align-items: top;
+    align-items: flex-start;
     padding: 18px;
 }
 
