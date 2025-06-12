@@ -23,7 +23,7 @@ const CheckboxPage: React.FC = () => {
   return (
     <div className="checkbox-page">
       <div className="top-buttons">
-        <BackButton />
+        <BackButton to="/safariPages/notification/1"/>
         <ProgressBar percentage={19} />
         <HomeButton to="/" />
       </div>

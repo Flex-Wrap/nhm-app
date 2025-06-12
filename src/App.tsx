@@ -22,6 +22,7 @@ import PollResultsPage from "./pages/safariPages/PollResultsPage";
 import BasicScene from "./pages/safariPages/BasicScene";
 import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
+import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
 
 const discoverRoutes = [
   "/",
@@ -40,6 +41,7 @@ export function App() {
       "/safariPages/checkbox",
       "/safariPages/poll",
       "/safariPages/poll-results",
+      "/safariPages/choose"
     ].some((path) => location.pathname.startsWith(path)) ||
     location.pathname.startsWith("/safariPages/scene") ||
     location.pathname.startsWith("/safariPages/notification");
@@ -83,6 +85,7 @@ export function App() {
         <Route path="/safariPages/scene/:id" element={<BasicScene />} />
         <Route path="/safariPages/notification/:id" element={<NotificationScene />} />
         <Route path="/safariPages/sliderEnd" element={<SliderPageEnd />} />
+        <Route path="safariPages/choose" element={<ChooseQuestion />} />
       </Routes>
     </>
   );

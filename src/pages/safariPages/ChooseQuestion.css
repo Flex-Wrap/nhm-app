@@ -1,0 +1,28 @@
+.choose-page {
+  background-image: url("../../assets/choose-bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttons-container button {
+  display: flex;
+  min-width: 302px;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--wheat-500);
+  border: 0;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-family: "Space Grotesk";
+}
