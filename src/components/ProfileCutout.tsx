@@ -8,13 +8,6 @@ interface ProfileCutoutProps {
 const ProfileCutout: React.FC<ProfileCutoutProps> = ({ image }) => {
   return (
     <div className="cutout-wrapper">
-      {/* Bottom background */}
-      <div className="cutout-body" />
-
-      {/* Border half-circle */}
-      <div className="cutout-border" />
-
-      {/* Profile image */}
       <div
         className="cutout-profile"
         style={{
@@ -24,6 +17,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({ image }) => {
           backgroundRepeat: "no-repeat",
         }}
       />
+      <div className="cutout-body" />
     </div>
   );
 };

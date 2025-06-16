@@ -1,70 +1,26 @@
 .cutout-wrapper {
+  width: 400px;
+  margin: auto;
   position: relative;
-  width: 100%;
-  --profile-size: 100px;
-  --cutout-size: 8px;
-  height: calc(var(--profile-size) / 2 + var(--cutout-size) + 4px); /* Only bottom half */
-  overflow: visible;
+  overflow: visible; /* important: this parent can overflow */
 }
 
 .cutout-body {
-  width: 100%;
-  height: 100%;
-  background-color: var(--wheat-150);
-  z-index: 1;
-  position: relative;
+  width: 400px;
+  height: 200px;
+  background: red;
+  clip-path: path("M0 0 H112 A30 30  0 0 1 142 30 A58 58 0 0 0 258 30 A30 30 0 0 1 288 0 H400 V200 H0 Z");
 }
 
-/* Bottom half of circular border */
-.cutout-border {
-  width: calc(var(--profile-size) + var(--cutout-size) * 2);
-  height: calc((var(--profile-size) + var(--cutout-size) * 2) / 2); /* Half circle */
-  border-radius: 0 0 100px 100px; /* Bottom half */
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--neutral-50);
-  z-index: 2;
-  overflow: visible;
-}
-
-/* Profile picture - pops out upward */
 .cutout-profile {
-  --profile-size: 100px;
-  width: var(--profile-size);
-  height: var(--profile-size);
-  border-radius: 50%;
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,calc(-50%)); /* Moves up out of wrapper */
-  z-index: 3;
+  transform: translate(-50%, -20%);
+  width: 100px;
+  height: 100px;
+  background-image: url("https://picsum.photos/400/200");
   background-size: cover;
   background-position: center;
-}
-
-.cutout-border::before {
-  content: "";
-  position: absolute;
-  top: 0; /* slight overlap for smoothing */
-  right: -34px;
-  width: 36px;
-  height: 16px; /* match .cutout-body */
-  border-radius: 20px 0 0 0 / 16px 0 0 0; /* Horizontal 24px, vertical 16px */
-  box-shadow: -8px -2px var(--neutral-50); /* subtle depth */
-  z-index: 2;
-}
-
-
-.cutout-border::after {
-  content: "";
-  position: absolute;
-  top: 0; /* slight overlap for smoothing */
-  left: -34px;
-  width: 36px;
-  height: 16px; /* match .cutout-body */
-  border-radius: 0 20px 0 0 / 0 16px 0 0; /* Horizontal 24px, vertical 16px */
-  box-shadow: 8px -2px var(--neutral-50); /* subtle depth */
-  z-index: 2;
+  border-radius: 50px;
 }

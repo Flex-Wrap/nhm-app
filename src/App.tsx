@@ -24,14 +24,6 @@ import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
 
-const discoverRoutes = [
-  "/",
-  "/infoPages/ticket-prices",
-  "/infoPages/opening-hours",
-  "/infoPages/route-parking",
-  "/infoPages/social-media",
-  "/infoPages/contact-info",
-];
 export function App() {
   const location = useLocation();
 
