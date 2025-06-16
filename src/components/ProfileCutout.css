@@ -1,0 +1,70 @@
+.cutout-wrapper {
+  position: relative;
+  width: 100%;
+  --profile-size: 100px;
+  --cutout-size: 8px;
+  height: calc(var(--profile-size) / 2 + var(--cutout-size) + 4px); /* Only bottom half */
+  overflow: visible;
+}
+
+.cutout-body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--wheat-150);
+  z-index: 1;
+  position: relative;
+}
+
+/* Bottom half of circular border */
+.cutout-border {
+  width: calc(var(--profile-size) + var(--cutout-size) * 2);
+  height: calc((var(--profile-size) + var(--cutout-size) * 2) / 2); /* Half circle */
+  border-radius: 0 0 100px 100px; /* Bottom half */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neutral-50);
+  z-index: 2;
+  overflow: visible;
+}
+
+/* Profile picture - pops out upward */
+.cutout-profile {
+  --profile-size: 100px;
+  width: var(--profile-size);
+  height: var(--profile-size);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,calc(-50%)); /* Moves up out of wrapper */
+  z-index: 3;
+  background-size: cover;
+  background-position: center;
+}
+
+.cutout-border::before {
+  content: "";
+  position: absolute;
+  top: 0; /* slight overlap for smoothing */
+  right: -34px;
+  width: 36px;
+  height: 16px; /* match .cutout-body */
+  border-radius: 20px 0 0 0 / 16px 0 0 0; /* Horizontal 24px, vertical 16px */
+  box-shadow: -8px -2px var(--neutral-50); /* subtle depth */
+  z-index: 2;
+}
+
+
+.cutout-border::after {
+  content: "";
+  position: absolute;
+  top: 0; /* slight overlap for smoothing */
+  left: -34px;
+  width: 36px;
+  height: 16px; /* match .cutout-body */
+  border-radius: 0 20px 0 0 / 0 16px 0 0; /* Horizontal 24px, vertical 16px */
+  box-shadow: 8px -2px var(--neutral-50); /* subtle depth */
+  z-index: 2;
+}
