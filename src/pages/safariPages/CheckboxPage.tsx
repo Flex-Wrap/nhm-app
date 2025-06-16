@@ -3,7 +3,9 @@ import CheckboxesContainer from "../../components/ChecboxesContainer";
 import { ContinueButton } from "../../components/ContinueButton";
 import { HomeButton } from "../../components/HomeButton";
 import OverlayContainer from "../../components/OverlayContainer";
+import ProfileCutout from "../../components/ProfileCutout";
 import ProgressBar from "../../components/ProgressBar";
+import knud from "../../assets/knud.jpg";
 import "./CheckboxPage.css";
 
 import React, { useState } from "react";
@@ -23,14 +25,17 @@ const CheckboxPage: React.FC = () => {
   return (
     <div className="checkbox-page">
       <div className="top-buttons">
-        <BackButton to="/safariPages/notification/1"/>
+        <BackButton to="/safariPages/notification/1" />
         <ProgressBar percentage={19} />
         <HomeButton to="/" />
       </div>
       <div className="content">
         <OverlayContainer visibleOverlays={visibleOverlays} />
-        <CheckboxesContainer toggleOverlay={toggleOverlay} />
-        <ContinueButton text="Continue" to="/safariPages/scene/3"/>
+        <div className="special-scene-content">
+          <ProfileCutout image={knud} />
+          <CheckboxesContainer toggleOverlay={toggleOverlay} />
+          <ContinueButton text="Continue" to="/safariPages/scene/3" />
+        </div>
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { HomeButton } from "../../components/HomeButton";
 import { notifications } from "../../data/SafariNotifications";
 import { Notification } from "../../components/Notification";
 import InfoIcon from "../../assets/info.svg?react";
 import { ContinueButton } from "../../components/ContinueButton";
+import "./NotificationScene.css";
 
 const NotificationScene: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const notificationId = parseInt(id || "1", 10);
   const notifScene = notifications.find((n) => n.id === notificationId);
 
@@ -30,7 +30,7 @@ const NotificationScene: React.FC = () => {
         <BackButton to={notifScene.previousPage} />
         <HomeButton to="/" />
       </div>
-      <div className="content">
+      <div className="content-notif">
         <Notification
           icon={<InfoIcon />}
           heading={notifScene.header}

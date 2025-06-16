@@ -14,7 +14,7 @@ const PollResultsPage: React.FC = () => {
         <ProgressBar percentage={81} />
         <HomeButton to="/" />
       </div>
-      <div className="content">
+      <div className="scene-content">
         <TextBox text="">
           <h2 style={{fontSize: "21px"}}>What did the other visitors think?</h2>
           <VisitorOpinion />

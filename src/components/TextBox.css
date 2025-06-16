@@ -3,10 +3,5 @@
   padding: 25px;
   align-items: center;
   border-radius: 20px;
-  width: 90%;
-
-  position: fixed;
-  bottom: 75px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
 }
