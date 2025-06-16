@@ -28,7 +28,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   const rLargeX = imgSize * 0.5 + gap;
 
   // rLargeY follows rawRSmall displacement, never below 0
-  const rLargeY = rawRSmall > 0 ? rLargeX : Math.max(0, rLargeX + rawRSmall);
+  const rLargeY = rawRSmall > 0 ? rLargeX : Math.max(0, rLargeX + rawRSmall - rSmall);
 
   const cx = 200; // center x of wrapper
   const startX = cx - imgSize / 2 - gap - rSmall;
