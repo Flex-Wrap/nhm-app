@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { HomeButton } from "../../components/HomeButton";
-import TextBox from "../../components/TextBox";
 import { scenes } from "../../data/SafariScenes";
-import { ContinueButton } from "../../components/ContinueButton";
 import "./BasicScene.css";
 import ProgressBar from "../../components/ProgressBar";
+import SceneSection from "../../components/SceneSection";
 
 const BasicScene: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -49,8 +48,12 @@ const BasicScene: React.FC = () => {
         <HomeButton to="/" />
       </div>
       <div className="content">
-        <TextBox text={scene.text}></TextBox>
-        <ContinueButton to={scene.nextPage} text={scene.buttonText} />
+        <SceneSection
+          image={scene.characterImage}
+          text={scene.text}
+          to={scene.nextPage}
+          buttonText={scene.buttonText}
+        />
       </div>
     </div>
   );

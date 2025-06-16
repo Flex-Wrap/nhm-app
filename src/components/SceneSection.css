@@ -1,0 +1,17 @@
+.scene-section {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: var(--wheat-150);
+  padding: 0 18px 20px 18px;
+  box-sizing: border-box;
+  border-radius: 24px 24px 0 0;
+  max-width: 430px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: flex-end;
+}

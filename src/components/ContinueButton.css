@@ -7,8 +7,7 @@
   background-color: var(--moss-300);
   border: none;
   border-radius: 100px;
-
-  position: fixed;
+  
   bottom: 12px;
   right: 18px;
 }
