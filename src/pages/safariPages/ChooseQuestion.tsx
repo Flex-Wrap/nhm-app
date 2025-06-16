@@ -4,6 +4,7 @@ import { HomeButton } from "../../components/HomeButton";
 import ProgressBar from "../../components/ProgressBar";
 import TextBox from "../../components/TextBox";
 import "./ChooseQuestion.css";
+import { ContinueButton } from "../../components/ContinueButton";
 
 const ChooseQuestion: React.FC = () => {
   const navigate = useNavigate();
