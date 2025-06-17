@@ -6,6 +6,7 @@ interface ProfileCutoutProps {
   children?: React.ReactNode;
   bodyClassName?: string;
   wrapperClassName?: string;
+  popoutPercent?: number; // Percentage of the image that pops out
 }
 
 const ProfileCutout: React.FC<ProfileCutoutProps> = ({
@@ -13,10 +14,11 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   children,
   bodyClassName,
   wrapperClassName,
+  popoutPercent = 0.2,
+  
 }) => {
   const imgSize = 100;
   const gap = 10;
-  const popoutPercent = 0.2;
   const popoutPosition = 0.25;
 
   const halfImg = imgSize / 2;
