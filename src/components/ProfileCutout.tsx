@@ -73,7 +73,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   return (
     <div className={`cutout-wrapper ${wrapperClassName ?? ""}`} ref={wrapperRef}>
       <div
-        className={`cutout-body ${bodyClassName ?? ""}`}
+        className={`cutout-body ${bodyClassName ?? ""}`} style={{paddingTop}}
       >
         {children}
       </div>
