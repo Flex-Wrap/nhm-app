@@ -10,6 +10,9 @@
   
   bottom: 12px;
   right: 18px;
+
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .arrow {

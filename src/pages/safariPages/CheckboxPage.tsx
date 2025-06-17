@@ -31,11 +31,10 @@ const CheckboxPage: React.FC = () => {
       </div>
       <div className="content">
         <OverlayContainer visibleOverlays={visibleOverlays} />
-        <div className="special-scene-content">
-          <ProfileCutout image={knud} />
+        <ProfileCutout image={knud} wrapperClassName="wrapper">
           <CheckboxesContainer toggleOverlay={toggleOverlay} />
-          <ContinueButton text="Continue" to="/safariPages/scene/3" />
-        </div>
+          <ContinueButton to="/safariPages/scene/3" text="Continue" />
+        </ProfileCutout>
       </div>
     </div>
   );

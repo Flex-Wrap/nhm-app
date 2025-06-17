@@ -18,3 +18,8 @@
   object-position: top;
   display: block;
 }
+
+.wrapper {
+  position: fixed;
+  bottom: 0;
+}

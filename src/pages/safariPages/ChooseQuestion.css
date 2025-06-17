@@ -26,3 +26,10 @@
   font-size: 14px;
   font-family: "Space Grotesk";
 }
+
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

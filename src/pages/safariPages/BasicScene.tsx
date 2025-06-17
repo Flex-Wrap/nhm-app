@@ -4,7 +4,9 @@ import { HomeButton } from "../../components/HomeButton";
 import { scenes } from "../../data/SafariScenes";
 import "./BasicScene.css";
 import ProgressBar from "../../components/ProgressBar";
-import SceneSection from "../../components/SceneSection";
+import { ContinueButton } from "../../components/ContinueButton";
+import TextBox from "../../components/TextBox";
+import ProfileCutout from "../../components/ProfileCutout";
 
 const BasicScene: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,14 +49,10 @@ const BasicScene: React.FC = () => {
         <ProgressBar percentage={scene.progress} />
         <HomeButton to="/" />
       </div>
-      <div className="content">
-        <SceneSection
-          image={scene.characterImage}
-          text={scene.text}
-          to={scene.nextPage}
-          buttonText={scene.buttonText}
-        />
-      </div>
+        <ProfileCutout image={scene.characterImage} wrapperClassName="wrapper">
+          <TextBox text={scene.text} />
+          <ContinueButton to={scene.nextPage} text={scene.buttonText} />
+        </ProfileCutout>
     </div>
   );
 };

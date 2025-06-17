@@ -1,5 +1,6 @@
 .cutout-wrapper {
   width: 100%;
+  max-width: 430px;
   min-height: 120px;
   position: relative;
   overflow: visible; /* important: this parent can overflow */
