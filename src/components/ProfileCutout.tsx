@@ -21,13 +21,13 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
 
   const halfImg = imgSize / 2;
 
-  const bodyRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 430, height: 120 }); // default min
 
   useEffect(() => {
     const updateSize = () => {
-      if (bodyRef.current) {
-        const { offsetWidth, offsetHeight } = bodyRef.current;
+      if (wrapperRef.current) {
+        const { offsetWidth, offsetHeight } = wrapperRef.current;
         setDimensions({
           width: offsetWidth,
           height: offsetHeight,
@@ -36,10 +36,10 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
     };
 
     const resizeObserver = new ResizeObserver(updateSize);
-    if (bodyRef.current) resizeObserver.observe(bodyRef.current);
+    if (wrapperRef.current) resizeObserver.observe(wrapperRef.current);
 
-    window.addEventListener("resize", updateSize); // in case parent resizes
-    updateSize(); // initial measure
+    window.addEventListener("resize", updateSize);
+    updateSize();
 
     return () => {
       resizeObserver.disconnect();
@@ -71,11 +71,9 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   `;
 
   return (
-    <div className={`cutout-wrapper ${wrapperClassName ?? ""}`}>
+    <div className={`cutout-wrapper ${wrapperClassName ?? ""}`} ref={wrapperRef}>
       <div
         className={`cutout-body ${bodyClassName ?? ""}`}
-        style={{ paddingTop }}
-        ref={bodyRef}
       >
         {children}
       </div>
@@ -90,7 +88,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
           borderRadius: halfImg,
         }}
       />
-      <svg width="0" height="0">
+      <svg width="0" height="0" style={{ position: "absolute", top: 0, left: 0 }}>
         <clipPath id="profileClip">
           <path d={path} />
         </clipPath>
