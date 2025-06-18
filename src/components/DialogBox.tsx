@@ -1,3 +1,5 @@
+import "./DialogBox.css";
+
 interface DialogBoxProps {
   image: string;
   text: string;
@@ -6,7 +8,7 @@ interface DialogBoxProps {
 
 const DialogBox: React.FC<DialogBoxProps> = ({image, text, character}) => {
     return (
-        <div> 
+        <div className="dialog-box"> 
             <img src={image} alt={character}/>
             <p>{text}</p>
         </div>
