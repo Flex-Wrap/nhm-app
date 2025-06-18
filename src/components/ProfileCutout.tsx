@@ -53,7 +53,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   const cutoutX = containerWidth * popoutPosition;
   const rSmall = imgSize * (0.5 - popoutPercent);
   const rLarge = halfImg + gap;
-  const paddingTop = rLarge + rSmall + gap;
+  const paddingTop = Math.max((rLarge + rSmall + gap), 12);
 
   const startX = cutoutX - halfImg - gap - rSmall;
   const arc1EndX = cutoutX - halfImg - gap;

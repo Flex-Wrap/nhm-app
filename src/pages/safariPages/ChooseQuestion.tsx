@@ -6,6 +6,7 @@ import TextBox from "../../components/TextBox";
 import "./ChooseQuestion.css";
 import knud from "../../assets/knud.jpg";
 import ProfileCutout from "../../components/ProfileCutout";
+import audio from "../../assets/audio/safari-scene-9.mp3";
 
 const ChooseQuestion: React.FC = () => {
   const navigate = useNavigate();

@@ -13,6 +13,8 @@ const BasicScene: React.FC = () => {
   const sceneId = parseInt(id || "1", 10);
   const scene = scenes.find((s) => s.id === sceneId);
 
+  const cutoutPercent = scene?.character ? 0.2 : 1.2;
+
   if (!scene) {
     return <div>Scene not found.</div>;
   }
@@ -49,7 +51,7 @@ const BasicScene: React.FC = () => {
         <ProgressBar percentage={scene.progress} />
         <HomeButton to="/" />
       </div>
-        <ProfileCutout image={scene.characterImage} wrapperClassName="wrapper">
+        <ProfileCutout image={scene.characterImage} wrapperClassName="wrapper" popoutPercent={cutoutPercent} bodyClassName="cutout-body">
           <TextBox text={scene.text} />
           <ContinueButton to={scene.nextPage} text={scene.buttonText} />
         </ProfileCutout>
