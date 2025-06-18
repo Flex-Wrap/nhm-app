@@ -18,7 +18,7 @@ const ProfileCutout: React.FC<ProfileCutoutProps> = ({
   
 }) => {
   const imgSize = 100;
-  const gap = 10;
+  const gap = 8;
   const popoutPosition = 0.25;
 
   const halfImg = imgSize / 2;
