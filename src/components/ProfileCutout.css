@@ -9,15 +9,14 @@
 .cutout-body {
   width: 100%;
   min-height: 120px;
-  max-height: 690px;
   clip-path: url(#profileClip); 
   position: relative;
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 16px;
   background-color: var(--wheat-300);
-  overflow-y: scroll;
   border-radius: 20px;
+  overflow-y: visible;
   }
 
 .cutout-body p {

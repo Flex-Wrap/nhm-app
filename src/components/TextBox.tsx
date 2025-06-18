@@ -5,7 +5,7 @@ export interface TextBoxProps {
   text: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
-  speed?: number; // optional: typing speed in ms per character
+  speed?: number;
 }
 
 const TextBox: React.FC<TextBoxProps> = ({ text, children, style, speed = 30 }) => {
