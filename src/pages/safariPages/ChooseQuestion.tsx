@@ -7,6 +7,7 @@ import "./ChooseQuestion.css";
 import knud from "../../assets/knud.jpg";
 import ProfileCutout from "../../components/ProfileCutout";
 import audio from "../../assets/audio/safari-scene-9.mp3";
+import AudioPlayButton from "../../components/AudioPlayButton";
 
 const ChooseQuestion: React.FC = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const ChooseQuestion: React.FC = () => {
       </div>
       <div className="content">
         <ProfileCutout image={knud} wrapperClassName="wrapper">
+          <AudioPlayButton src={audio} />
         <TextBox text="Haha, right, like my wife—she’d never understand how it really works out here. She’s all about saving the poor animals.">
           <br></br>
           <p>Ask Jakobsen:</p>

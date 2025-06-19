@@ -194,7 +194,7 @@ export const scenes = [
         image: scene13,
         audio: audio13,
         progress: 71,
-        nextPage: "/safariPages/dialogue",
+        nextPage: "/safariPages/dialog",
         previousPage: "/safariPages/AR/2",
         character: true,
         characterImage: knud,

@@ -7,9 +7,11 @@ import ProfileCutout from "../../components/ProfileCutout";
 import ProgressBar from "../../components/ProgressBar";
 import { DialogReplies } from "../../data/DialogData";
 import "./DialogPage.css";
+import audio from "../../assets/audio/safari-scene-18.mp3";
+import AudioPlayButton from "../../components/AudioPlayButton";
 
-const typingSpeed = 30;
-const pause = 1000;
+const typingSpeed = 70;
+const pause = 800;
 
 const DialogPage: React.FC = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
@@ -46,6 +48,7 @@ const DialogPage: React.FC = () => {
           popoutPercent={1.2}
           bodyClassName="cutout-body"
         >
+          <AudioPlayButton src={audio} />
           <div className="replies-container" ref={scrollRef}>
             {DialogReplies.slice(0, visibleIndex + 1).map(
               ({ id, image, text, character }, i) => {

@@ -41,7 +41,7 @@ export const notifications = [
     header: "A new day begins.",
     text: "Jakobsen is busy with taxidermy",
     nextPage: "/safariPages/scene/14", 
-    previousPage: "/safariPages/poll-results", 
+    previousPage: "/safariPages/dialog", 
     buttonText: "Continue",
     progress: "86%"
   },

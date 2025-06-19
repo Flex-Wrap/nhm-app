@@ -17,6 +17,10 @@
   background-color: var(--wheat-300);
   border-radius: 20px;
   overflow-y: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
   }
 
 .cutout-body p {

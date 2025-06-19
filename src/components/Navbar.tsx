@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
     },
     {
       label: "Schedule",
-      icon: <IconSchedule className="navbar-icon" />,
+      icon: <IconSchedule className="navbar-icon" />, 
       section: "schedule",
     },
   ] as const;

@@ -7,6 +7,7 @@ import ProgressBar from "../../components/ProgressBar";
 import { ContinueButton } from "../../components/ContinueButton";
 import TextBox from "../../components/TextBox";
 import ProfileCutout from "../../components/ProfileCutout";
+import AudioPlayButton from "../../components/AudioPlayButton";
 
 const BasicScene: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -52,6 +53,7 @@ const BasicScene: React.FC = () => {
         <HomeButton to="/" />
       </div>
         <ProfileCutout image={scene.characterImage} wrapperClassName="wrapper" popoutPercent={cutoutPercent} bodyClassName="cutout-body">
+          <AudioPlayButton src={scene.audio} />
           <TextBox text={scene.text} />
           <ContinueButton to={scene.nextPage} text={scene.buttonText} />
         </ProfileCutout>
