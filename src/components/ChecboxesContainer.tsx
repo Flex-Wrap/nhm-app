@@ -31,14 +31,12 @@ export default function CheckboxesContainer({
   };
 
   return (
-    <TextBox text="" style={{ padding: "49px", marginTop: "80px"}}>
-      <div className="checkboxes-container">
+    <div className="checkboxes-container">
       {buttons.map((btn) => (
         <div key={btn.id} onClick={() => handleClick(btn)}>
           <Checkbox label={btn.label} checked={!!checkedItems[btn.id]} />
         </div>
       ))}
-      </div>
-    </TextBox>
+    </div>
   );
 }
