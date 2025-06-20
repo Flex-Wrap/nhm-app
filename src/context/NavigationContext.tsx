@@ -1,160 +1,133 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { themes } from "../utils/theming";
 
-// --------------------
-// 🔶 Types
-// --------------------
+type Section = "discover" | "exhibitions" | "map" | "schedule";
 
-type Section = "discover" | "exhibitions" | "map" | "schedule" | "safari" | "other";
-
-type NavColors = {
-  foreground: string;
+type Theme = {
   background: string;
-  active: string;
-  text: string;
+  foreground: string;
+  tagColor: string;
 };
 
-type SectionMemory = {
-  discover: string;
-  exhibitions: string;
-};
+interface NavigationContextProps {
+  shouldHideNavbar: boolean;
+  sectionTheme: Theme;
+  navigateToSection: (section: Section) => void;
+  isActive: (section: Section) => boolean;
+}
 
-type NavigationContextType = {
-  showNavbar: boolean;
-  navColors: NavColors;
-  activeSection: Section;
-  sectionMemory: SectionMemory;
-  setMemoryForSection: (section: keyof SectionMemory, path: string) => void;
-};
+const NavigationContext = createContext<NavigationContextProps>({
+  shouldHideNavbar: false,
+  sectionTheme: {
+    background: "--moss-700",
+    foreground: "--moss-150",
+    tagColor: "--moss-850",
+  },
+  navigateToSection: () => {},
+  isActive: () => false,
+});
 
-// --------------------
-// 🎨 Exhibition-specific color themes (you can update later)
-// --------------------
+export const useNavigation = () => useContext(NavigationContext);
 
-const exhibitionColorMap: Record<string, NavColors> = {
-  "1": { foreground: "#222", background: "#fff", active: "#ff0", text: "#000" },
-  "2": { foreground: "#fff", background: "#333", active: "#f0f", text: "#eee" },
-  "3": { foreground: "#aaa", background: "#000", active: "#0ff", text: "#fff" },
-  "4": { foreground: "#123", background: "#edf", active: "#fa0", text: "#222" },
-  "5": { foreground: "#f4f4f4", background: "#101010", active: "#5af", text: "#444" },
-};
+const safariRoutes = [
+  "/safariPages/slider",
+  "/safariPages/checkbox",
+  "/safariPages/poll",
+  "/safariPages/poll-results",
+  "/safariPages/choose",
+  "/safariPages/dialog",
+];
 
-const defaultColors: NavColors = {
-  foreground: "#000",
-  background: "#fff",
-  active: "#007bff",
-  text: "#333",
-};
-
-// --------------------
-// 📦 Context setup
-// --------------------
-
-const NavigationContext = createContext<NavigationContextType | null>(null);
-
-export const NavigationProvider = ({ children }: { children: ReactNode }) => {
+export const NavigationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const pathname = location.pathname;
 
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [navColors, setNavColors] = useState<NavColors>(defaultColors);
-  const [activeSection, setActiveSection] = useState<Section>("discover");
-  const [sectionMemory, setSectionMemory] = useState<SectionMemory>({
-    discover: "/",
-    exhibitions: "/exhibitions",
+  const [theme, setTheme] = useState<Theme>({
+    background: "--moss-700",
+    foreground: "--moss-150",
+    tagColor: "--moss-850",
   });
 
-  const setMemoryForSection = (section: keyof SectionMemory, path: string) => {
-    setSectionMemory((prev) => ({ ...prev, [section]: path }));
-  };
+  const [lastPaths, setLastPaths] = useState<Record<Section, string>>({
+    discover: "/",
+    exhibitions: "/exhibitions",
+    map: "/map",
+    schedule: "/schedule",
+  });
 
+  const shouldHideNavbar =
+    safariRoutes.some((path) => pathname.startsWith(path)) ||
+    pathname.startsWith("/safariPages/");
+
+  // Update last visited path per section
   useEffect(() => {
-    // --------------------
-    // 🚫 Hide navbar on safariPages
-    // --------------------
-    if (pathname.startsWith("/safariPages")) {
-      setShowNavbar(false);
-      setActiveSection("safari");
-      return;
-    } else {
-      setShowNavbar(true);
-    }
-
-    // --------------------
-    // 📚 Discover section
-    // --------------------
-    if (pathname === "/") {
-      setActiveSection("discover");
-      setMemoryForSection("discover", "/");
-    } else if (pathname.startsWith("/infoPages/")) {
-      setActiveSection("discover");
-      setMemoryForSection("discover", pathname);
-    }
-
-    // --------------------
-    // 🖼️ Exhibitions section
-    // --------------------
-    else if (pathname.startsWith("/exhibitions")) {
-      setActiveSection("exhibitions");
-
-      const match = pathname.match(/^\/exhibitions\/(\d+)/);
-      if (match) {
-        const id = match[1];
-        const colors = exhibitionColorMap[id] || defaultColors;
-        setNavColors(colors);
-        setMemoryForSection("exhibitions", pathname);
-      } else {
-        setNavColors(defaultColors);
-        setMemoryForSection("exhibitions", "/exhibitions");
-      }
-    }
-
-    // --------------------
-    // 🗺️ Map section
-    // --------------------
-    else if (pathname === "/map") {
-      setActiveSection("map");
-      setNavColors(defaultColors);
-    }
-
-    // --------------------
-    // 🗓️ Schedule section
-    // --------------------
-    else if (pathname === "/schedule") {
-      setActiveSection("schedule");
-      setNavColors(defaultColors);
-    }
-
-    // --------------------
-    // ❓ Fallback section
-    // --------------------
-    else {
-      setActiveSection("other");
-      setNavColors(defaultColors);
+    if (pathname === "/" || pathname.startsWith("/infoPages/")) {
+      setLastPaths((prev) => ({ ...prev, discover: pathname }));
+    } else if (pathname.startsWith("/exhibitions")) {
+      setLastPaths((prev) => ({ ...prev, exhibitions: pathname }));
+    } else if (pathname.startsWith("/map")) {
+      setLastPaths((prev) => ({ ...prev, map: pathname }));
+    } else if (pathname.startsWith("/schedule")) {
+      setLastPaths((prev) => ({ ...prev, schedule: pathname }));
     }
   }, [pathname]);
+
+  // Find theme based on current pathname using the theming config
+  useEffect(() => {
+    const matchedTheme = Object.values(themes).find((themeConfig) =>
+      themeConfig.routes.some((route) =>
+        pathname === route || pathname.startsWith(route + "/")
+      )
+    );
+
+    if (matchedTheme) {
+      setTheme({
+        background: matchedTheme.background,
+        foreground: matchedTheme.foreground,
+        tagColor: matchedTheme.tagColor,
+      });
+    } else {
+      // fallback theme
+      setTheme({
+        background: "--moss-700",
+        foreground: "--moss-150",
+        tagColor: "--moss-850",
+      });
+    }
+  }, [pathname]);
+
+  const navigateToSection = (section: Section) => {
+    const path = lastPaths[section];
+    navigate(path);
+  };
+
+  const isActive = (section: Section): boolean => {
+    switch (section) {
+      case "discover":
+        return pathname === "/" || pathname.startsWith("/infoPages/");
+      case "exhibitions":
+        return pathname.startsWith("/exhibitions");
+      case "map":
+        return pathname.startsWith("/map");
+      case "schedule":
+        return pathname.startsWith("/schedule");
+      default:
+        return false;
+    }
+  };
 
   return (
     <NavigationContext.Provider
       value={{
-        showNavbar,
-        navColors,
-        activeSection,
-        sectionMemory,
-        setMemoryForSection,
+        shouldHideNavbar,
+        sectionTheme: theme,
+        navigateToSection,
+        isActive,
       }}
     >
       {children}
     </NavigationContext.Provider>
   );
-};
-
-// --------------------
-// 🪝 Hook
-// --------------------
-
-export const useNavigation = (): NavigationContextType => {
-  const ctx = useContext(NavigationContext);
-  if (!ctx) throw new Error("useNavigation must be used inside NavigationProvider");
-  return ctx;
 };

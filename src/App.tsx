@@ -12,9 +12,6 @@ import { RouteAndParking } from "./pages/infoPages/RouteAndParking";
 import { SocialMedia } from "./pages/infoPages/SocialMedia";
 import { ContactInfo } from "./pages/infoPages/ContactInfo";
 
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { setLastPath } from "./utils/pathTracker";
 import SliderPage from "./pages/safariPages/SliderPageSafari1";
 import CheckboxPage from "./pages/safariPages/CheckboxPage";
 import PollPage from "./pages/safariPages/PollPage";
@@ -24,35 +21,11 @@ import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
 import DialogPage from "./pages/safariPages/DialogPage";
+import { useNavigation } from "./context/NavigationContext";
+import ARPage from "./pages/safariPages/ARPage";
 
 export function App() {
-  const location = useLocation();
-
-  const shouldHideNavbar =
-    [
-      "/safariPages/slider",
-      "/safariPages/checkbox",
-      "/safariPages/poll",
-      "/safariPages/poll-results",
-      "/safariPages/choose",
-      "/safariPages/dialog"
-    ].some((path) => location.pathname.startsWith(path)) ||
-    location.pathname.startsWith("/safariPages/scene") ||
-    location.pathname.startsWith("/safariPages/notification");
-
-  useEffect(() => {
-    const pathname = location.pathname;
-
-    if (pathname === "/" || pathname.startsWith("/infoPages/")) {
-      setLastPath("discover", pathname);
-    } else if (pathname.startsWith("/exhibitions")) {
-      setLastPath("exhibitions", pathname);
-    } else if (pathname.startsWith("/map")) {
-      setLastPath("map", pathname);
-    } else if (pathname.startsWith("/schedule")) {
-      setLastPath("schedule", pathname);
-    }
-  }, [location.pathname]);
+  const { shouldHideNavbar } = useNavigation();
 
   return (
     <>
@@ -81,6 +54,7 @@ export function App() {
         <Route path="/safariPages/sliderEnd" element={<SliderPageEnd />} />
         <Route path="/safariPages/choose" element={<ChooseQuestion />} />
         <Route path="/safariPages/dialog" element={<DialogPage />} />
+        <Route path="/safariPages/ar/:id" element={<ARPage />} />
       </Routes>
     </>
   );

@@ -182,8 +182,8 @@ export const scenes = [
         image: scene12,
         audio: audio12,
         progress: 67,
-        nextPage: "/safariPages/AR/2",
-        previousPage: "/safariPages/AR/1",
+        nextPage: "/safariPages/ar/2",
+        previousPage: "/safariPages/ar/1",
         character: true,
         characterImage: jakobsen,
         buttonText: "Take a picture"
@@ -195,7 +195,7 @@ export const scenes = [
         audio: audio13,
         progress: 71,
         nextPage: "/safariPages/dialog",
-        previousPage: "/safariPages/AR/2",
+        previousPage: "/safariPages/ar/2",
         character: true,
         characterImage: knud,
         buttonText: "Continue"
