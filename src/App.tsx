@@ -23,6 +23,7 @@ import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
 import DialogPage from "./pages/safariPages/DialogPage";
 import { useNavigation } from "./context/NavigationContext";
 import ARPage from "./pages/safariPages/ARPage";
+import { EventDetail } from "./pages/EventDetail";
 
 export function App() {
   const { shouldHideNavbar } = useNavigation();
@@ -36,6 +37,8 @@ export function App() {
         <Route path="/exhibitions/:id" element={<ExhibitionDetails />} />
         <Route path="/map" element={<Map />} />
         <Route path="/schedule" element={<Schedule />} />
+
+        <Route path="/schedule/event/:id" element={<EventDetail />} />
 
         {/* Info pages */}
         <Route path="/infoPages/ticket-prices" element={<TicketPrices />} />

@@ -49,7 +49,7 @@ export const Schedule: React.FC = () => {
 
   const handleDateClick = (eventId: string) => {
     setIsCalendarOpen(false);
-    navigate(`/events/${eventId}`);
+    navigate(`/schedule/event/${eventId}`);
   };
 
   return (
