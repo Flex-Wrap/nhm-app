@@ -20,6 +20,7 @@ import BasicScene from "./pages/safariPages/BasicScene";
 import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
+import { useEffect } from "react";
 
 const discoverRoutes = [
   "/",
@@ -30,8 +31,6 @@ const discoverRoutes = [
   "/infoPages/contact-info",
 ];
 export function App() {
-  const location = useLocation();
-
   const shouldHideNavbar =
     [
       "/safariPages/slider",
@@ -42,20 +41,6 @@ export function App() {
     ].some((path) => location.pathname.startsWith(path)) ||
     location.pathname.startsWith("/safariPages/scene") ||
     location.pathname.startsWith("/safariPages/notification");
-
-  useEffect(() => {
-    const pathname = location.pathname;
-
-    if (pathname === "/" || pathname.startsWith("/infoPages/")) {
-      setLastPath("discover", pathname);
-    } else if (pathname.startsWith("/exhibitions")) {
-      setLastPath("exhibitions", pathname);
-    } else if (pathname.startsWith("/map")) {
-      setLastPath("map", pathname);
-    } else if (pathname.startsWith("/schedule")) {
-      setLastPath("schedule", pathname);
-    }
-  }, [location.pathname]);
 
   return (
     <>
