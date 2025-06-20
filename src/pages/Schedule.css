@@ -1,0 +1,28 @@
+.schedule-page {
+  padding: 2rem;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.month-section {
+  margin-top: 2rem;
+}
+
+.month-section h2 {
+  margin-bottom: 1rem;
+}
+
+.events-grid {
+  display: grid;
+  gap: 1rem;
+}

@@ -20,12 +20,27 @@ import BasicScene from "./pages/safariPages/BasicScene";
 import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
-import DialogPage from "./pages/safariPages/DialogPage";
-import { useNavigation } from "./context/NavigationContext";
-import ARPage from "./pages/safariPages/ARPage";
+import { useEffect } from "react";
 
+const discoverRoutes = [
+  "/",
+  "/infoPages/ticket-prices",
+  "/infoPages/opening-hours",
+  "/infoPages/route-parking",
+  "/infoPages/social-media",
+  "/infoPages/contact-info",
+];
 export function App() {
-  const { shouldHideNavbar } = useNavigation();
+  const shouldHideNavbar =
+    [
+      "/safariPages/slider",
+      "/safariPages/checkbox",
+      "/safariPages/poll",
+      "/safariPages/poll-results",
+      "/safariPages/choose",
+    ].some((path) => location.pathname.startsWith(path)) ||
+    location.pathname.startsWith("/safariPages/scene") ||
+    location.pathname.startsWith("/safariPages/notification");
 
   return (
     <>
@@ -36,25 +51,24 @@ export function App() {
         <Route path="/exhibitions/:id" element={<ExhibitionDetails />} />
         <Route path="/map" element={<Map />} />
         <Route path="/schedule" element={<Schedule />} />
-
         {/* Info pages */}
         <Route path="/infoPages/ticket-prices" element={<TicketPrices />} />
         <Route path="/infoPages/opening-hours" element={<OpeningHours />} />
         <Route path="/infoPages/route-parking" element={<RouteAndParking />} />
         <Route path="/infoPages/social-media" element={<SocialMedia />} />
         <Route path="/infoPages/contact-info" element={<ContactInfo />} />
-
         {/* Safari pages */}
         <Route path="/safariPages/slider" element={<SliderPage />} />
         <Route path="/safariPages/checkbox" element={<CheckboxPage />} />
         <Route path="/safariPages/poll" element={<PollPage />} />
         <Route path="/safariPages/poll-results" element={<PollResultsPage />} />
         <Route path="/safariPages/scene/:id" element={<BasicScene />} />
-        <Route path="/safariPages/notification/:id" element={<NotificationScene />} />
+        <Route
+          path="/safariPages/notification/:id"
+          element={<NotificationScene />}
+        />
         <Route path="/safariPages/sliderEnd" element={<SliderPageEnd />} />
-        <Route path="/safariPages/choose" element={<ChooseQuestion />} />
-        <Route path="/safariPages/dialog" element={<DialogPage />} />
-        <Route path="/safariPages/ar/:id" element={<ARPage />} />
+        <Route path="safariPages/choose" element={<ChooseQuestion />} />
       </Routes>
     </>
   );
