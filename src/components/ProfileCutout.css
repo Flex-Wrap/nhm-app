@@ -11,8 +11,8 @@
   min-height: 120px;
   clip-path: url(#profileClip); 
   position: relative;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 18px;
+  padding-right: 18px;
   padding-bottom: 16px;
   background-color: var(--wheat-300);
   border-radius: 20px;

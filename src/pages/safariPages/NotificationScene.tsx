@@ -30,7 +30,7 @@ const NotificationScene: React.FC = () => {
         <BackButton to={notifScene.previousPage} />
         <HomeButton to="/" />
       </div>
-      <div className="content-notif">
+      <div className="content-notification">
         <Notification
           icon={<InfoIcon />}
           heading={notifScene.header}
