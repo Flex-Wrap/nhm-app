@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
-import { HomeButton } from "../../components/HomeButton";
 import { arScenes } from "../../data/ARScenes";
 import { Notification } from "../../components/Notification";
 import "./ARPage.css";
 import { InfoIcon } from "lucide-react";
 import CaptureButton from "../../components/CaptureButton";
-import { useNavigation } from "../../context/NavigationContext"; // adjust path if needed
+import { useNavigation } from "../../context/NavigationContext";
 
 const ARPage: React.FC = () => {
   const { id } = useParams();
@@ -17,6 +16,7 @@ const ARPage: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [streamStarted, setStreamStarted] = useState(false);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
 
   const { sectionTheme } = useNavigation();
 
@@ -58,10 +58,12 @@ const ARPage: React.FC = () => {
           canvasRef.current.height
         );
         const image = canvasRef.current.toDataURL("image/png");
-        console.log("Captured image:", image);
+        setCapturedImage(image); // Store image to show overlay
       }
     }
   };
+
+  const closeOverlay = () => setCapturedImage(null);
 
   if (!currentScene) return <div>Scene not found</div>;
 
@@ -89,9 +91,7 @@ const ARPage: React.FC = () => {
       <CaptureButton
         className="ar-capture-button"
         color={`var(${sectionTheme.background})`}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        onClick={captureImage}
       />
 
       <div className="ar-top-buttons">
@@ -101,6 +101,18 @@ const ARPage: React.FC = () => {
       {!streamStarted && (
         <div className="ar-loading-overlay">
           <div>📷 Loading camera...</div>
+        </div>
+      )}
+
+      {capturedImage && (
+        <div className="ar-overlay">
+          <div className="ar-overlay-content">
+            <img src={capturedImage} alt="Captured" className="bw-image" />
+            <div className="ar-overlay-bottom">
+              {/* Add buttons/text/info here */}
+              <button onClick={closeOverlay}>Close</button>
+            </div>
+          </div>
         </div>
       )}
     </div>
