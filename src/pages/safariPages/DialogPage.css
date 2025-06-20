@@ -1,0 +1,14 @@
+.replies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow-y: scroll;
+    max-height: 530px;
+    width: 100%;
+
+    position: relative;
+    overflow-y: auto;
+    overflow-x: visible;
+
+    scroll-behavior: smooth;
+}

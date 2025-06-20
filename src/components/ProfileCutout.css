@@ -1,0 +1,38 @@
+.cutout-wrapper {
+  width: 100%;
+  max-width: 430px;
+  min-height: 120px;
+  position: relative;
+  overflow: visible; /* important: this parent can overflow */
+}
+
+.cutout-body {
+  width: 100%;
+  min-height: 120px;
+  clip-path: url(#profileClip); 
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  background-color: var(--wheat-300);
+  border-radius: 20px;
+  overflow-y: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+  }
+
+.cutout-body p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.cutout-profile {
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,18 +1,13 @@
 import React from "react";
 import "./Navbar.css";
-import { useNavigate, useLocation } from "react-router-dom";
 import IconDiscover from "../assets/icon-discover.svg?react";
 import IconExhibitions from "../assets/icon-exhibitions.svg?react";
 import IconMap from "../assets/icon-map.svg?react";
 import IconSchedule from "../assets/icon-events.svg?react";
-import { getLastPath, isSectionActive } from "../utils/pathTracker";
-import { useNavbarTheme } from "./NavbarThemeContext";
+import { useNavigation } from "../context/NavigationContext";
 
 export const Navbar: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const pathname = location.pathname;
-  const { background, foreground } = useNavbarTheme();
+  const { sectionTheme, navigateToSection, isActive } = useNavigation();
 
   const navItems = [
     {
@@ -41,8 +36,8 @@ export const Navbar: React.FC = () => {
     <div
       style={
         {
-          "--navbar-bg-color": `var(${background})`,
-          "--navbar-fg-color": `var(${foreground})`,
+          "--navbar-bg-color": `var(${sectionTheme.background})`,
+          "--navbar-fg-color": `var(${sectionTheme.foreground})`,
         } as React.CSSProperties
       }
     >
@@ -50,8 +45,8 @@ export const Navbar: React.FC = () => {
         {navItems.map(({ label, icon, section }) => (
           <div
             key={section}
-            onClick={() => navigate(getLastPath(section))}
-            className={`navbar-item ${isSectionActive(section, pathname) ? "active" : ""}`}
+            onClick={() => navigateToSection(section)}
+            className={`navbar-item ${isActive(section) ? "active" : ""}`}
             role="button"
             tabIndex={0}
             aria-label={label}

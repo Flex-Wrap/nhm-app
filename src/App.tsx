@@ -12,9 +12,6 @@ import { RouteAndParking } from "./pages/infoPages/RouteAndParking";
 import { SocialMedia } from "./pages/infoPages/SocialMedia";
 import { ContactInfo } from "./pages/infoPages/ContactInfo";
 
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { setLastPath } from "./utils/pathTracker";
 import SliderPage from "./pages/safariPages/SliderPageSafari1";
 import CheckboxPage from "./pages/safariPages/CheckboxPage";
 import PollPage from "./pages/safariPages/PollPage";
@@ -23,8 +20,6 @@ import BasicScene from "./pages/safariPages/BasicScene";
 import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
-
-import { EventDetail } from "./pages/EventDetail";
 
 const discoverRoutes = [
   "/",
@@ -89,8 +84,6 @@ export function App() {
         />
         <Route path="/safariPages/sliderEnd" element={<SliderPageEnd />} />
         <Route path="safariPages/choose" element={<ChooseQuestion />} />
-        <Route path="/events/:id" element={<EventDetail />} />{" "}
-        {/* <- this is key */}
       </Routes>
     </>
   );

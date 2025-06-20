@@ -1,0 +1,28 @@
+.dialog-box {
+  position: relative;
+  width: 100%;
+  max-width: 355px;
+  margin: 0 auto;
+  margin-left: 35px;
+}
+
+.dialog-box img {
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10000px;
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+    z-index: 3;
+}
+
+.dialog-box p {
+  background-color: var(--wheat-300);
+  border-radius: 20px;
+  padding: 16px 24px 16px 45px;
+  text-align: left;
+  position: relative;
+  z-index: 0;
+}

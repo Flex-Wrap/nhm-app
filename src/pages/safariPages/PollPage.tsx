@@ -18,7 +18,7 @@ const PollPage: React.FC = () => {
         <ProgressBar percentage={81} />
         <HomeButton to="/" />
       </div>
-      <div className="content">
+      <div className="scene-content">
         <TextBox text="Does understanding make it right?">
           <div className="buttons-container">
             <button className="poll-button" onClick={() => handleVote("yes")}>Yes</button>
