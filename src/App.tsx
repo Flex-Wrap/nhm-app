@@ -24,6 +24,8 @@ import NotificationScene from "./pages/safariPages/NotificationScene";
 import SliderPageEnd from "./pages/safariPages/SliderPageSafari2";
 import ChooseQuestion from "./pages/safariPages/ChooseQuestion";
 
+import { EventDetail } from "./pages/EventDetail";
+
 const discoverRoutes = [
   "/",
   "/infoPages/ticket-prices",
@@ -41,7 +43,7 @@ export function App() {
       "/safariPages/checkbox",
       "/safariPages/poll",
       "/safariPages/poll-results",
-      "/safariPages/choose"
+      "/safariPages/choose",
     ].some((path) => location.pathname.startsWith(path)) ||
     location.pathname.startsWith("/safariPages/scene") ||
     location.pathname.startsWith("/safariPages/notification");
@@ -69,23 +71,26 @@ export function App() {
         <Route path="/exhibitions/:id" element={<ExhibitionDetails />} />
         <Route path="/map" element={<Map />} />
         <Route path="/schedule" element={<Schedule />} />
-
         {/* Info pages */}
         <Route path="/infoPages/ticket-prices" element={<TicketPrices />} />
         <Route path="/infoPages/opening-hours" element={<OpeningHours />} />
         <Route path="/infoPages/route-parking" element={<RouteAndParking />} />
         <Route path="/infoPages/social-media" element={<SocialMedia />} />
         <Route path="/infoPages/contact-info" element={<ContactInfo />} />
-
         {/* Safari pages */}
         <Route path="/safariPages/slider" element={<SliderPage />} />
         <Route path="/safariPages/checkbox" element={<CheckboxPage />} />
         <Route path="/safariPages/poll" element={<PollPage />} />
         <Route path="/safariPages/poll-results" element={<PollResultsPage />} />
         <Route path="/safariPages/scene/:id" element={<BasicScene />} />
-        <Route path="/safariPages/notification/:id" element={<NotificationScene />} />
+        <Route
+          path="/safariPages/notification/:id"
+          element={<NotificationScene />}
+        />
         <Route path="/safariPages/sliderEnd" element={<SliderPageEnd />} />
         <Route path="safariPages/choose" element={<ChooseQuestion />} />
+        <Route path="/events/:id" element={<EventDetail />} />{" "}
+        {/* <- this is key */}
       </Routes>
     </>
   );
