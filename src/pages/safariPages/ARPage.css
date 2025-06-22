@@ -35,11 +35,11 @@
 }
 
 .ar-capture-button {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .ar-top-buttons {
@@ -66,50 +66,54 @@
   z-index: 10;
 }
 
-.ar-overlay {
-  position: fixed;
+/* New: Hides camera layout when captured image is shown */
+.hidden {
+  display: none !important;
+}
+
+.captured-layout {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* dimmed background */
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 16px; /* space around the modal */
-  box-sizing: border-box;
-}
-
-.ar-overlay-content {
-  margin-top: 16px;
-  margin-bottom: auto;
-  width: calc(100% - 32px);
-  max-width: 400px;
-  height: 70%;
-  background-color: white;
-  border-radius: 16px;
+  height: 100vh;
+  background-color: black;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}
-
-.image-wrapper {
-  width: 100%;
-  max-height: 60%;
-}
-
-.bw-image {
-    height: calc(400px - 32px);
-  filter: grayscale(100%);
-  transform: rotate(-90deg);
-}
-
-.ar-overlay-bottom {
-  flex: 1;
-  padding: 16px;
-  background-color: white;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.captured-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  border-radius: 0;
+  transform: none;
+}
+
+
+/* Buttons shown below captured image */
+.captured-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 6;
+}
+
+.retake-button {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  color: var(--neutral-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
 }
