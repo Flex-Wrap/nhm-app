@@ -4,13 +4,15 @@ import { HomeButton } from "../../components/HomeButton";
 import TextBox from "../../components/TextBox";
 import "./PollPage.css";
 import ProgressBar from "../../components/ProgressBar";
+import { submitPollVote } from "../../firebase/firebaseDb";
 
 const PollPage: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleVote = (answer: "yes" | "no") => {
-        navigate("/safariPages/poll-results", {state: {userAnswer: answer}});
-    }
+  const handleVote = async (answer: "yes" | "no") => {
+    await submitPollVote(answer);
+    navigate("/safariPages/poll-results");
+  };
   return (
     <div className="poll-page">
       <div className="top-buttons">
@@ -21,8 +23,12 @@ const PollPage: React.FC = () => {
       <div className="scene-content">
         <TextBox text="Does understanding make it right?">
           <div className="buttons-container">
-            <button className="poll-button" onClick={() => handleVote("yes")}>Yes</button>
-            <button className="poll-button" onClick={() => handleVote("no")}>No</button>
+            <button className="poll-button" onClick={() => handleVote("yes")}>
+              Yes
+            </button>
+            <button className="poll-button" onClick={() => handleVote("no")}>
+              No
+            </button>
           </div>
         </TextBox>
       </div>

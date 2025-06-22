@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Checkbox from "./Checkbox";
 import "./CheckboxesContainer.css";
-import TextBox from "./TextBox";
 
 const buttons = [
   { id: "1", label: "Hat", hasOverlay: true },

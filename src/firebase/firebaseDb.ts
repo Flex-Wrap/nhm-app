@@ -76,3 +76,42 @@ export async function getUpcomingEvents(count: number = 2): Promise<Event[]> {
 
   return events.slice(0, count);
 }
+
+// Data collection poll
+
+import { doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+
+export async function submitPollVote(answer: "yes" | "no"): Promise<void> {
+  const pollRef = doc(db, "PollResults", "results");
+  const snapshot = await getDoc(pollRef);
+
+  if (!snapshot.exists()) {
+    throw new Error("Poll results document does not exist.");
+  }
+
+  const data = snapshot.data();
+  const currentVotes = data.votes || { yes: 0, no: 0 };
+
+  // Increment selected vote
+  const updatedVotes = {
+    ...currentVotes,
+    [answer]: (currentVotes[answer] || 0) + 1,
+  };
+
+  await updateDoc(pollRef, {
+    votes: updatedVotes,
+    lastVoteDate: serverTimestamp(),
+  });
+}
+
+export async function getPollVotes(): Promise<{ yes: number; no: number }> {
+  const pollRef = doc(db, "PollResults", "results");
+  const snapshot = await getDoc(pollRef);
+
+  if (!snapshot.exists()) {
+    return { yes: 0, no: 0 };
+  }
+
+  const data = snapshot.data();
+  return data.votes || { yes: 0, no: 0 };
+}

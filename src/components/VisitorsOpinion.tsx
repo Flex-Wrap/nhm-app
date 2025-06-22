@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../components/VisitorsOpinion.css";
+import { getPollVotes } from "../firebase/firebaseDb";
 
 const VisitorOpinion: React.FC = () => {
-  const [barHeights, setBarHeights] = useState<{
-    yes: string | undefined;
-    no: string | undefined;
-  }>({
-    yes: undefined,
-    no: undefined,
+  const [barHeights, setBarHeights] = useState<{ yes: string; no: string }>({
+    yes: "0%",
+    no: "0%",
   });
 
-  const yesPercent = 73;
-  const noPercent = 27;
+  const [percentages, setPercentages] = useState<{ yes: number; no: number }>({
+    yes: 0,
+    no: 0,
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setBarHeights({
-        yes: `${yesPercent}%`,
-        no: `${noPercent}%`,
-      });
-    }, 100);
-    return () => clearTimeout(timer);
+    const fetchVotes = async () => {
+      const { yes, no } = await getPollVotes();
+      const total = yes + no;
+      const yesP = total ? Math.round((yes / total) * 100) : 0;
+      const noP = 100 - yesP;
+
+      setPercentages({ yes: yesP, no: noP });
+      setTimeout(() => {
+        setBarHeights({ yes: `${yesP}%`, no: `${noP}%` });
+      }, 100);
+    };
+
+    fetchVotes();
   }, []);
 
   return (
@@ -33,7 +39,7 @@ const VisitorOpinion: React.FC = () => {
             style={barHeights.yes ? { height: barHeights.yes } : undefined}
           ></div>
         </div>
-        <span>{yesPercent}% of visitors</span>
+        <span>{percentages.yes}% of visitors</span>
       </div>
       <div className="bar-column">
         <p>NO</p>
@@ -43,7 +49,7 @@ const VisitorOpinion: React.FC = () => {
             style={barHeights.no ? { height: barHeights.no } : undefined}
           ></div>
         </div>
-        <span>{noPercent}% of visitors</span>
+        <span>{percentages.no}% of visitors</span>
       </div>
     </div>
   );
