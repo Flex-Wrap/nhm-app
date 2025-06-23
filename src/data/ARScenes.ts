@@ -1,4 +1,4 @@
-import sceneVideo from "../assets/scene1-bg.mp4";
+import sceneVideo from "../assets/lion-scene.mp4";
 
 export type ARScene = {
   id: number;

@@ -7,13 +7,11 @@ import { ContinueButton } from "../../components/ContinueButton";
 import { RetakeButton } from "../../components/RetakeButton";
 import { useAllowLandscape } from "../../utils/theming";
 import "./ARResult.css";
-import { useNavigation } from "../../context/NavigationContext";
 import { RememberButton } from "../../components/RememberButton";
 
 const MODEL_URL = "https://teachablemachine.withgoogle.com/models/rM4lfitvI/";
 
 const ARResult: React.FC = () => {
-  const { sectionTheme } = useNavigation();
 
   useAllowLandscape();
   const location = useLocation();
@@ -92,7 +90,7 @@ const ARResult: React.FC = () => {
             isLion === null
               ? "Checking your image..."
               : isLion
-              ? scene.notificationText
+              ? "These pictures sure awaken some memories."
               : "Try capturing the lion exhibit again."
           }
         />
@@ -108,7 +106,7 @@ const ARResult: React.FC = () => {
           autoPlay
           muted
           playsInline
-          onEnded={() => {}}
+          loop
         >
           <source src={scene.videoUrl} type="video/mp4" />
           Your browser does not support the video tag.
@@ -123,10 +121,7 @@ const ARResult: React.FC = () => {
                 <ContinueButton to={scene.nextPage} text="Continue" />
               ) : null
             ) : (
-              <RememberButton
-                onClick={handleRememberClick}
-                text="Remember"
-              />
+              <RememberButton onClick={handleRememberClick} text="Remember" />
             )
           ) : (
             <RetakeButton to={`/safariPages/ar/${scene.id}`} text="Try Again" />
