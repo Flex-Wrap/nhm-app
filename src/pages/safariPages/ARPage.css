@@ -1,4 +1,9 @@
 /* ARPage.css */
+.ar-page-container {
+  min-height: 100svh;
+  height: 100svh;
+  overflow: hidden;
+}
 
 .ar-scene {
   position: relative;
