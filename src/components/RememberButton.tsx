@@ -12,8 +12,6 @@ type RememberButtonProps = {
 export const RememberButton: React.FC<RememberButtonProps> = ({
   onClick,
   text,
-  backgroundColor,
-  color,
 }) => {
   return (
     <button
