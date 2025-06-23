@@ -24,6 +24,7 @@ import DialogPage from "./pages/safariPages/DialogPage";
 import { useNavigation } from "./context/NavigationContext";
 import ARPage from "./pages/safariPages/ARPage";
 import { EventDetail } from "./pages/EventDetail";
+import ARResult from "./pages/safariPages/ARResult";
 
 export function App() {
   const { shouldHideNavbar } = useNavigation();
@@ -58,6 +59,8 @@ export function App() {
         <Route path="/safariPages/choose" element={<ChooseQuestion />} />
         <Route path="/safariPages/dialog" element={<DialogPage />} />
         <Route path="/safariPages/ar/:id" element={<ARPage />} />
+        <Route path="/safariPages/ar-result" element={<ARResult />} />
+
       </Routes>
     </>
   );

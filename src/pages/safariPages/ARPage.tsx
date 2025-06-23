@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BackButton } from "../../components/BackButton";
 import { arScenes } from "../../data/ARScenes";
 import { Notification } from "../../components/Notification";
@@ -7,9 +7,10 @@ import "./ARPage.css";
 import { InfoIcon } from "lucide-react";
 import CaptureButton from "../../components/CaptureButton";
 import { useNavigation } from "../../context/NavigationContext";
-import { ArrowDownIcon, RefreshCcw } from "lucide-react";
+import { useAllowLandscape } from "../../utils/theming";
 
 const ARPage: React.FC = () => {
+  useAllowLandscape();
   const { id } = useParams();
   const sceneId = id ? parseInt(id, 10) : null;
   const currentScene = arScenes.find((scene) => scene.id === sceneId);
@@ -17,9 +18,9 @@ const ARPage: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [streamStarted, setStreamStarted] = useState(false);
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
 
   const { sectionTheme } = useNavigation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const startCamera = async () => {
@@ -34,11 +35,6 @@ const ARPage: React.FC = () => {
           videoRef.current.onloadedmetadata = () => {
             videoRef.current?.play();
             setStreamStarted(true);
-
-            if (canvasRef.current && videoRef.current) {
-              canvasRef.current.width = videoRef.current.videoWidth;
-              canvasRef.current.height = videoRef.current.videoHeight;
-            }
           };
         }
       } catch (err) {
@@ -59,36 +55,52 @@ const ARPage: React.FC = () => {
   const captureImage = () => {
     if (!canvasRef.current || !videoRef.current) return;
 
+    const video = videoRef.current;
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    // Match canvas to video
-    canvas.width = videoRef.current.videoWidth;
-    canvas.height = videoRef.current.videoHeight;
+    // Get actual and visible dimensions
+    const videoWidth = video.videoWidth;
+    const videoHeight = video.videoHeight;
+    const { width: displayWidth, height: displayHeight } = video.getBoundingClientRect();
 
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    canvas.width = displayWidth;
+    canvas.height = displayHeight;
+
+    const videoAspect = videoWidth / videoHeight;
+    const displayAspect = displayWidth / displayHeight;
+
+    let sx = 0, sy = 0, sWidth = videoWidth, sHeight = videoHeight;
+
+    if (videoAspect > displayAspect) {
+      sWidth = videoHeight * displayAspect;
+      sx = (videoWidth - sWidth) / 2;
+    } else {
+      sHeight = videoWidth / displayAspect;
+      sy = (videoHeight - sHeight) / 2;
+    }
+
+    context.drawImage(video, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
 
     const image = canvas.toDataURL("image/png");
 
-    // Ensure draw completes before switching layout
     requestAnimationFrame(() => {
-      setCapturedImage(image);
+      navigate("/safariPages/ar-result", {
+        state: {
+          image,
+          sceneId,
+        },
+      });
     });
-  };
-
-  const resetCapture = () => {
-    setCapturedImage(null);
   };
 
   if (!currentScene) return <div>Scene not found</div>;
 
   return (
     <div className="ar-page-container">
-      {/* Camera Layout */}
-      <div className={`ar-scene ${capturedImage ? "hidden" : ""}`}>
+      <div className="ar-scene">
         <video ref={videoRef} className="ar-video" muted playsInline />
-
         <canvas ref={canvasRef} style={{ display: "none" }} />
 
         <div className="content-notif">
@@ -115,35 +127,6 @@ const ARPage: React.FC = () => {
           <div className="ar-loading-overlay">
             <div>📷 Loading camera...</div>
           </div>
-        )}
-      </div>
-
-      {/* Captured Image Layout */}
-      <div className={`captured-layout ${capturedImage ? "" : "hidden"}`}>
-        {capturedImage && (
-          <>
-            <img
-              src={capturedImage}
-              alt="Captured"
-              className="captured-image"
-            />
-            <div className="captured-controls">
-              <button
-                className="retake-button"
-                onClick={resetCapture}
-                style={{ backgroundColor: `var(${sectionTheme.background})` }}
-              >
-                <ArrowDownIcon size={42} />
-              </button>
-              <button
-                className="retake-button"
-                onClick={resetCapture}
-                style={{ backgroundColor: `var(${sectionTheme.background})` }}
-              >
-                <RefreshCcw size={42} />
-              </button>
-            </div>
-          </>
         )}
       </div>
     </div>
