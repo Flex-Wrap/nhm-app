@@ -98,7 +98,6 @@ const ARPage: React.FC = () => {
   if (!currentScene) return <div>Scene not found</div>;
 
   return (
-    <div className="ar-page-container">
       <div className="ar-scene">
         <video ref={videoRef} className="ar-video" muted playsInline />
         <canvas ref={canvasRef} style={{ display: "none" }} />
@@ -129,7 +128,6 @@ const ARPage: React.FC = () => {
           </div>
         )}
       </div>
-    </div>
   );
 };
 

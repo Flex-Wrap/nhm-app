@@ -1,15 +1,10 @@
 /* ARPage.css */
-.ar-page-container {
-  max-height: 100svh;
-  height: 100svh;
-  overflow: hidden;
-}
 
 .ar-scene {
   position: relative;
   height: 100svh;
+  max-height: 100svh;
   width: 100%;
-  overflow: hidden;
 }
 
 .ar-video {
