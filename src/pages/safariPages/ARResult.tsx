@@ -21,7 +21,17 @@ const ARResult: React.FC = () => {
   const [canContinue, setCanContinue] = useState(false);
 
   const scene = arScenes.find((s) => s.id === sceneId);
-
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => window.removeEventListener("resize", setVh);
+  }, []);
   useEffect(() => {
     let isCancelled = false;
 
@@ -102,13 +112,7 @@ const ARResult: React.FC = () => {
       )}
 
       {showVideo && (
-        <video
-          className="lion-video"
-          autoPlay
-          muted
-          playsInline
-          loop
-        >
+        <video className="lion-video" autoPlay muted playsInline loop>
           <source src={scene.videoUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
