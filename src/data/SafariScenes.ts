@@ -170,7 +170,7 @@ export const scenes = [
         image: scene11,
         audio: audio11,
         progress: 62,
-        nextPage: "/safariPages/AR/1",
+        nextPage: "/safariPages/ar/1",
         previousPage: "/safariPages/scene/10",
         character: true,
         characterImage: jakobsen,

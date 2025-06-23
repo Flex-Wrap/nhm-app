@@ -19,7 +19,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+
+    /* Disable this to avoid the enum/namespace errors */
+    "erasableSyntaxOnly": false,
+
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },

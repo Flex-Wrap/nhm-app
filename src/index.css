@@ -59,7 +59,7 @@ html, body {
 }
 
 /* Constrain actual layout */
-#root {
+#root:not(.allow-landscape) {
   position: relative;
   max-width: 430px;
   min-width: 375px;

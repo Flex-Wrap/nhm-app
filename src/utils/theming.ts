@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export type ThemeConfig = {
   background: string;
   foreground: string;
@@ -36,7 +38,7 @@ export const themes: Record<string, ThemeConfig> = {
     background: "--wheat-700",
     foreground: "--wheat-150",
     tagColor: "--wheat-850",
-    routes: ["/exhibitions/4","/safariPages/AR"],
+    routes: ["/exhibitions/4","/safariPages/ar"],
   },
   polar: {
     background: "--polar-700",
@@ -45,3 +47,14 @@ export const themes: Record<string, ThemeConfig> = {
     routes: ["/exhibitions/5"],
   },
 };
+
+export function useAllowLandscape() {
+  useEffect(() => {
+    const root = document.getElementById("root");
+    root?.classList.add("allow-landscape");
+
+    return () => {
+      root?.classList.remove("allow-landscape");
+    };
+  }, []);
+}
