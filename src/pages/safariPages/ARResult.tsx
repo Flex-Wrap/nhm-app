@@ -12,7 +12,6 @@ import { RememberButton } from "../../components/RememberButton";
 const MODEL_URL = "https://teachablemachine.withgoogle.com/models/rM4lfitvI/";
 
 const ARResult: React.FC = () => {
-
   useAllowLandscape();
   const location = useLocation();
   const { image, sceneId } = location.state || {};
@@ -76,25 +75,27 @@ const ARResult: React.FC = () => {
 
   return (
     <div className="ar-result-page">
-      <div className="content-notif">
-        <Notification
-          icon={null}
-          heading={
-            isLion === null
-              ? "Analyzing..."
-              : isLion
-              ? scene.successText
-              : scene.failText
-          }
-          description={
-            isLion === null
-              ? "Checking your image..."
-              : isLion
-              ? "These pictures sure awaken some memories."
-              : "Try capturing the lion exhibit again."
-          }
-        />
-      </div>
+      {!showVideo && (
+        <div className="content-notif">
+          <Notification
+            icon={null}
+            heading={
+              isLion === null
+                ? "Analyzing..."
+                : isLion
+                ? scene.successText
+                : scene.failText
+            }
+            description={
+              isLion === null
+                ? "Checking your image..."
+                : isLion
+                ? "These pictures sure awaken some memories."
+                : "Try capturing the lion exhibit again."
+            }
+          />
+        </div>
+      )}
 
       {!showVideo && (
         <img src={image} alt="Captured" className="captured-image" />

@@ -33,7 +33,7 @@ export const ExhibitionDetails = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
+          minHeight: "100svh",
           color: "white",
           ["--navbar-fg-color" as any]: `var(${sectionTheme.foreground})`,
           ["--navbar-bg-color" as any]: `var(${sectionTheme.background})`,
